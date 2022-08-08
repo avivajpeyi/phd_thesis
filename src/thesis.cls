@@ -278,7 +278,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       % Comment \includegraphics line out!!
       %
-      {\includegraphics[width=1\textwidth]{Figures/monash-logo.jpg} \par}
+      {\includegraphics[width=1\textwidth]{figures/monash-logo.jpg} \par}
       %
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %
