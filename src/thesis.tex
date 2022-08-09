@@ -1,55 +1,29 @@
-%%
-%% Modified by Ricardo Garcia-Rosas to satisfy the rules established by the University of Melbourne's Research Higher Degrees Committee as of 4th of June 2019.
-%% Guidelines can be found at: https://gradresearch.unimelb.edu.au/__data/assets/pdf_file/0004/2027839/Preparation-of-GR-theses-rules.pdf
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% IMPORTANT NOTE TO AUTHOR:
-%% As part of the guidelines, the use of the university logo is not permitted. This template contains it to make it easier to find/recognise in the Overleaf Gallery. To make the template compliant please go to 'Thesis.cls' and comment out the \includegraphics command in line 217 (it is clearly highlited).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%% ----------------------------------------------------------------
-%% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
-%% ----------------------------------------------------------------
+\documentclass[a4paper, 11pt, oneside]{thesis}
 
-% Set up the document
-\documentclass[a4paper, 11pt, oneside]{thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
-%
-% Put your figures in this directory
-\graphicspath{figures/}  % Location of the graphics files (set up for graphics to be in PDF format)
-%
+\graphicspath{figures/}
 
-% Include any extra LaTeX packages required
-\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
-\usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
-\usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
+\usepackage[square, numbers, comma, sort&compress]{natbib}
+\usepackage{verbatim}
+\usepackage{vector}
 \hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
 
 %% ----------------------------------------------------------------
 \begin{document}
-\frontmatter      % Begin Roman style (i, ii, iii, iv...) page numbering
+\frontmatter
 
-%
+
 \UNIVERSITY{{Monash University}}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Update your department and school here:
-\school{{School of Astrophysics}}
+\school{{School of Physics and Astronomy}}
 \gradtime{{2022}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Set up the Title Page
-% Change your thesis title and your information here
 \title  {Astrophysical Inference in the Data Driven Era}
 \authors  {\texorpdfstring
             {\href{avi.vajpeyi@gmail.com}{Avi Vajpeyi }}
             {Avi Vajpeyi}
             }
-\addresses  {\groupname\\\deptname\\\univname}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
+\addresses  {\groupname\\\deptname\\\univname}
 \date       {\today}
 \subject    {}
-\keywords   {Biometrics}
+\keywords   {Bayesian Inference}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \maketitle

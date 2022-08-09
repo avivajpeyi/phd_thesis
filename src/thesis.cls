@@ -15,7 +15,7 @@
 %%###############################################################################
 
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
-\ProvidesClass{Thesis}
+\ProvidesClass{thesis}
               [2007/22/02 v1.0
    LaTeX document class]
 \def\baseclass{book}
@@ -226,10 +226,10 @@
 \newcommand*{\DEPARTMENT}[1]{\def\DEPTNAME{#1}}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
-\supervisor  {}
+\supervisor  {Rory Smith}
 \examiner    {}
 \degree      {Doctor of Philosophy}
-\authors     {}
+\authors     {Avi Vajpeyi}
 \university  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
                 {Monash University}}
                 {Monash University}}
@@ -237,11 +237,11 @@
                 {Monash University}}
                 {Monash University}}
 \school  {\texorpdfstring{\href{School Web Site URL Here (include http://)}
-                {School of Information Technology}}
-                {School of Information Technology}}
+                {School of Physics and Astronomy}}
+                {School of Physics and Astronomy}}
 \SCHOOL  {\texorpdfstring{\href{School Web Site URL Here (include http://)}
-                {School of Information Technology}}
-                {School of Information Technology}}
+                {School of Physics and Astronomy}}
+                {School of Physics and Astronomy}}
 \group       {\texorpdfstring{\href{Research Group Web Site URL Here (include http://)}
                 {Research Group Name}}
                 {Research Group Name}}
