@@ -146,11 +146,22 @@
 
 
 
+%%% TABLE
+\usepackage{nicematrix}
+\usepackage{varwidth}
+\usepackage{xcolor}
+
+%%% DATES
+
+\usepackage[en-US]{datetime2}
+
+%%% 
+
 \newcommand\btypeout[1]{\bhrule\typeout{\space #1}\bhrule}
-\def\today{\ifcase\month\or
-  January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or December\fi
-  \space \number\year}
+% \def\today{\ifcase\month\or
+%   January\or February\or March\or April\or May\or June\or
+%   July\or August\or September\or October\or November\or December\fi
+%   \space \number\year}
 
 \usepackage{pdfpages}
 \usepackage{setspace}
