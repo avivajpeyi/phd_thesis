@@ -1,0 +1,109 @@
+
+
+From ancient times to the modern day, astronomy has played an important role in all cultures and eras.
+Questions about the nature of the infinite cosmos and our place in it have intrigued great minds for millennia.
+In researching the cosmos, astrophysicists try to comprehend the vast scale of the universe, both spatial and temporally.
+Astronomers have to develop instruments that can tap into this ocean of cosmic data and make sense of the flood of information that results.
+
+Each new drop of cosmic data obtained improves our understanding of the universe.
+
+Yet the challenge of
+
+
+Exploration of the Milky Way has always been in the spotlight of these endeavours
+to understand the Universe, as our home Galaxy represents an ideal laboratory
+to test our hypotheses about astrophysical phenomena.
+
+
+
+
+During the last decade, a wealth of new large-scale surveys have come online
+across the world.
+
+
+These huge spectral, astrometric and photometric surveys are providing astronomers with the richest datasets to date, to better characterise stars contained within the Milky Way like never before. Not only are these resources used to
+better understand the formation and evolution of our Galaxy and the stars contained
+within it, but these surveys can also be used to better understand the exoplanets found
+within the Milky Way. More planets are now being discovered in our galaxy, thanks
+largely to NASA’s new exoplanetary mission, the Transiting Exoplanet Survey Satellite (TESS). TESS has been operating since 2018, with an unprecedented number of
+stars being observed to monitor transit signals of exoplanets around nearby stars.
+
+
+
+
+From ancient times to the modern day, astronomy has played an important role in all cultures and eras.
+Questions about the nature of the infinite cosmos and our place in it have intrigued great minds for millennia.
+
+
+
+Democritus (460 - 370 BC) suggested for the first time that the night sky consisted of a vast number
+of distant and unresolved stars.
+
+Centuries later, in 1610, Galileo Galilei turned his telescope toward the sky
+and then it became clear that Democritus was right: the filmy glow was nothing but the light of billions and
+billions of stars too faint to be seen individually.
+
+He realized that if the stars were like the Sun, they had
+to be at vast distances because of the range of brightnesses he could observe.
+
+For several hundred years
+after Galileo, astronomers have tried to map out the stars in the Milky Way.
+
+William Herschel, in 1785, was
+the first to start counting stars in order to make a map and measure the distribution of stars in space. And,
+somehow, we are still counting today
+
+
+From ancient times to the modern day, astronomy has always played an important role in all cultures and eras.
+Questions about the nature of the infinite cosmos and our place in it have intrigued great minds for millennia.
+
+Exploration of the Milky Way has always been in the spotlight of these endeavours
+to understand the Universe, as our home Galaxy represents an ideal laboratory
+to test our hypotheses about astrophysical phenomena.
+
+Our knowledge of the Milky Way has evolved spectacularly over the centuries
+and is currently relatively extensive. We have a good understanding of various
+components of our Galaxy, our position in it and in the Local Group.
+
+However,
+there are still many questions that remain unanswered.
+
+The full picture of how
+our Galaxy was formed, how it will evolve and how is it connected to other
+galaxies is a complicated puzzle, whose pieces are being put together by a great
+group effort of scientists all around the world.
+
+
+We now know that the Milky Way is a spiral galaxy consisting of a bulge
+and/or a bar, a disc with several spiral arms and a stellar halo (see Figure 1.1),
+extending out to a radius of ∼30 kpc and containing about 100 billion stars. It
+is also believed that the Milky Way has a dark matter halo with radius of some
+290 kpc (Deason et al. 2020).
+
+Our position in the Milky Way is ∼8.3 kpc from
+the Galactic centre (Gillessen et al. 2017).
+
+In this section, we briefly review research on the Milky Way throughout
+history, which will lead us to open questions and build the motivation for the
+thesis.
+1
+
+
+
+
+
+
+
+
+In researching the cosmos, astrophysicists face a unique challenge: the vast scale of the universe itself, in terms of both its physical size and the timeline of its existence. Further, telltale traces of the entire history of the universe are still extant; because the cosmos is so transparent, almost all of the radiation that has ever been emitted continues to travel through space. Yet these challenges also offer tremendous promise. The trick for researchers will be to develop instruments that can tap into this ocean of cosmic data and make sense of the flood of information that results.
+
+Astronomy has always been data driven, but innovative instruments, global digital archives, and new analytical tools are turning astronomy into a true big-data science, as many articles in this special issue explain. The European Space Agency’s Gaia satellite ("Gaia Reveals the Milky Way") is currently measuring the positions and motions of more than a billion stars in the Milky Way; it will eventually make possible the most comprehensive map of our home galaxy ever created. Together, all of the world’s telescopes discover a few thousand supernovas each year, but the "Large Synoptic Survey Telescope" under construction in Chile will discover many more than that every single night. New technology can even lead to completely different ways of perceiving what is out there. For instance, the Laser Interferometer Gravitational-Wave Observatory (LIGO) detectors can record gravitational waves from merging black holes and neutron stars ("Gravitational Wave Astronomy").
+
+
+Photograph by Gregory Lambert/ESO.
+
+With this flood of data, we can test theories as never before and develop a more sophisticated understanding of the universe on all scales. In addition, astronomical data rapidly become public, fostering collaboration among scientists "Why Do Galaxies Start Out as Cosmic Pickles?"). And these public data have another advantage: They create excitement. With the abundance of citizen science projects underway, anyone can be an amateur astronomer ("STEVE and the Citizen Scientists").
+
+The amount of astronomical data is growing so rapidly that human brains cannot keep up. Fortunately, researchers are developing artificial intelligence that can recognize patterns and details that would otherwise elude us. In an article in the online component of this issue ("Deep Learning"), my colleague Marc Huertas-Company describes our “face recognition for galaxies” project, which applies deep learning technology on a cosmic scale. And just as such methods developed for computer science can be applied to astrophysics, new big data technologies coming out of the astrophysical field can lead to advances in other areas of science. (See the President’s Letter for more about big data research across scientific fields.)
+
+Computers can help us analyze scientific data and find correlations, but the ultimate significance of all these data is that they fuel the human imagination—and by extension, they inspire the ideas that will lead to new tools, new observations, and new, even deeper insights into the nature of the cosmos. And although novel scientific results seem to come in daily, the big data era is sparking new questions at an unprecedented rate. We still don’t know what dark matter is or what dark energy is, and we don’t know the first thing about the landscapes on planets orbiting other stars. The big data era is just the first small step toward a kind of exploration that we can scarcely imagine. —Joel Primack, President of Sigma Xi, and professor of physics and astrophysics at the University of California, Santa Cruz
