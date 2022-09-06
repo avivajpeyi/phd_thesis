@@ -1,0 +1,1036 @@
+# Introduction {#literature-short} 
+
+
+The detection of high mass black holes ($>100$ M${}_\odot$) will shed light on the formation of globular clusters,
+supermassive black holes and thus galaxy formation [@lodato2006supermassive; @2018IMBHreview]. LIGO is theoretically
+sensitive to the merger of binary black holes with total masses up to 500 M${}_\odot$ which are expected to occur at a
+rate of 0-10 yr$^{-1}$ [@fregeau2006imbhbRatePrediction, @mandel2008rates]. However, even after @salemi2019search's
+targeted match-filter based search for gravitational waves from high-mass black holes the largest total mass detected so
+far is approximately 80 M${}_\odot$ [@abbott2019gwtc]. A possible explanation for the absence of high mass events may be
+due to their misclassification as short-duration instrumental noise transients [@blipGlitches]. High-mass mergers have
+very few in-band wave cycles, and hence can easily be mistaken for short-duration instrumental transients. More details
+on the theorised formation channels and merger rates are discussed in Appendix \@ref(literature).
+
+The focus of this PhD is on improving our scientific understanding of these high-mass binary black hole systems. We
+start by developing a targeted search for gravitational waves from high-mass black hole systems. This new targeted
+search utilises Bayesian inference and thus is a more sensitive tool for detecting high-mass binary black hole mergers
+as compared to traditional match-filtering searches. We have applied this technique on the high-mass triggers during
+LIGO's second observing run to investigate the possibility of discovering new gravitational-wave signals from an
+entirely new class of high mass black hole binaries.
+
+
+
+
+# Significance of a high-mass Bayesian Search {#significance}
+
+There are two primary motivations for a targeted high-mass search that utilises Bayesian inference. The first is to help
+distinguish gravitataional-waves from high-mass systems from noise-transients, and the second is to try to alleviate the
+discord in the significance of some of the "quiet" gravitational wave events between various search pipelines. 
+
+## A better Detection-statistic
+
+### Gravitational-wave triggers and short duration glitches
+A foreground trigger is a section of LIGO data identified by data searching pipelines to potentially harbour some
+gravitational wave signal (more on triggers in Appendix~\@ref(searches)). In the ground-based gravitational wave
+detectors, many spurious instrumental noise events fool the pipelines into considering the noise events as triggers
+(false-positive triggers). These instrumental-triggers are called glitches. Luckily, unlike triggers from astrophysical
+sources, glitches do not often occur at the same time or with the same morphology across the various gravitational wave
+detectors -- they are often _incoherent_ amongst detectors. Additionally, these short-duration glitches appear very
+similar to high-mass gravitational-wave signals, making the two challenging to distinguish. For example, consider
+Figure~\@ref(fig:compareGlitchAndSignal) that compares a plot of a glitch on the left and a plot of a high-mass GW
+candidate on the right.
+
+
+(ref:compareGlitchAndSignal) Spectrogram of a glitch on the left, and a candidate GW trigger on the right.
+
+```{r compareGlitchAndSignal, echo=FALSE, fig.show='hold', fig.asp=.7, fig.width=6, fig.align='center', out.width='45%', fig.cap='(ref:compareGlitchAndSignal)', fig.scap="Comparing glitches to high-mass candidates."  }
+knitr::include_graphics(c("images/glitch.png", "images/L1_spectrogram_logy_0.png"))
+```
+
+
+### Assigning significance to Gravitational-wave triggers
+The LIGO-Virgo collaboration uses various methods to avoid marking false-positive glitch triggers as gravitational wave
+triggers. One method first involves generating a set of _background triggers_, false-positives picked up from the search
+through artificially^[The artificial gravitational wave data
+should have no true gravitational waves as it is constructed by applying relative time offsets between the data of different detectors (time offsets longer than the light-travel time between the detectors).] created gravitational
+wave data containing no signals. Then, a detection-statistic value, a value
+that ranks the likelihood of a trigger to originate from a gravitational-wave signal,  is calculated for both the
+foreground and background triggers. Finally, the background trigger detection-statistic distribution can assign a probability to the _null hypothesis_ that the foreground triggers are consistent with the background. This null hypothesis probability is obtained by first calculating the cumulative distribution function for the background distribution. Placing the foreground event on the background cumulative distribution function provides the  _p-value_, or false alarm probability, of the foreground event. This p-value is a measure of how significant indicating the foreground event is from the background distribution of false-positives. 
+
+For example, consider the
+detection-statistic plot for GW150914, as seen in Figure~\@ref(fig:GW150914background). If the
+foreground triggers are far away from the background trigger distribution, the foreground triggers have low p-values (and are significantly
+different from the background). Hence, the low p-values foreground triggers might originate from astrophysical sources. On the other hand, if the foreground
+triggers fall along with the background distribution with high p-values, the foreground triggers are consistent with the background. Thus,
+they are less likely to originate from astrophysical sources.  
+
+(ref:GW150914background) A binary coalescence search displaying a number of candidate GW events (orange markers) and the mean number of background events (black line), taken from @abbott2016observation.
+
+```{r GW150914background, echo=FALSE,fig.pos = "!h", fig.asp=.7, fig.width=6, fig.align='center',  out.width='75%', fig.cap='(ref:GW150914background)', fig.scap="Ranking statistic plot for GW150914"}
+knitr::include_graphics("images/GW150914_background.png")
+```
+
+### A Bayesian Detection statistic
+
+Comparing foreground events to a background distribution is a "frequentist" method of assigning significance. It does
+not use the literal meaning of the likelihood -- which is a probability -- or compute the posterior probability of there
+being a signal given data and hypotheses. By using a frequentist method of assigning significance, these searches
+discard the physical meaning of the likelihood. In principle, a Bayesian approach would be able to incorporate this
+information that is lost.
+
+The goal of this PhD's first project is to enhance the significance of high-mass foreground triggers using a Bayesian
+approach and thereby increase the confidence in the detection of gravitational waves from large-mass compact binaries.
+If this work does improve the significance of high-mass triggers, we will increase the likelihood of detecting a
+high-mass black hole system via gravitational waves. The detection statistic we will utilise is the Bayesian Coherence
+Ratio (or BCR), as seen in @bcr_paper. The BCR is discussed in detail in Appendix~\@ref(BayesianCoherenceRatio). In
+short, The `BCR` is an odds (evidence ratio) comparing two hypotheses: there's a coherent GW in the data, plus Gaussian
+noise vs there's only incoherent Gaussian noise or a glitch (modeled as a compact binary coalescence) in each detector
+[@bcr_paper].
+
+
+
+
+## A better measure of significance
+
+### Gravitational wave candidates with uncertain significance
+In aLIGO's first two observing runs, eleven gravitational wave events were found in the data by the LIGO-Virgo
+scientific collaboration [@abbott2019gwtc]. Since the public release of LIGO's first and second observing run's data,
+several groups have searched the data for gravitational waves independently of LIGO. One particular research group of
+interest is a research team at the Institute for Advanced Study (IAS). The group constructed searches to look for the
+LIGO-confirmed the gravitational wave events detected by the LIGO-Virgo collaboration, and in the process of doing so,
+claim to have discovered several others events [@IAS0; @IAS1; @IAS2]. Some of these events have total masses $>85
+M_{\odot}$, which is larger than the average total mass of the LIGO detections. Some of these IAS and LIGO events are
+displayed in Table~\@ref(tab:O2significancesWObcr) with their p-astro reported by various LIGO and IAS search pipelines.
+
+```{r O2significancesWObcr, tidy=FALSE, echo=FALSE}
+data <- read.csv('data/significances_without_bcr.csv',  stringsAsFactors = FALSE)
+knitr::kable(
+  data, booktabs = TRUE, escape =F, 
+  caption = "p-astro from seveal detection pipelines for a subset of the O2 foreground triggers.",
+  caption.short = "p-astro for various O2 foreground triggers" 
+)
+```
+
+From this Table~\@ref(tab:O2significancesWObcr), it is evident there is some uncertainty if these events can be considered real
+gravitational-wave events -- are these events significantly different from the background or not? The various pipelines
+have different answers. Our Bayesian search pipeline, as described in the next section, can help us answer this question 
+and come to a conclusion about the significance of the events.
+
+### Using the BCR to calculate significance
+While the BCR might not increase the significance of some of the gravitational wave candidates, it will provide a more
+accurate measure of their significance. The BCR significance will be more accurate as it is a measure of the probability
+that signals in two or more detectors are _coherent_ (signals share exactly the same source properties in the different
+detectors) vs the detectors having _incoherent_ glitches/noise. This Bayesian significance might alleviate the discord
+between the significances of specific foreground triggers reported by various search pipelines.
+
+In summary, we will use the BCR to analyse high-mass foreground triggers to help discern signals from glitches and
+provide a better measure of significance for the foreground triggers. For our work, we will initially focus on
+conducting this BCR search on O2 data, and subsequently with a search in O3 data.
+
+
+
+# Methodology {#methodology}
+This PhD project intends to provide new methods and insights to studying gravitational waves form high-mass systems.
+Thus far, the project has focused on building up the infrastructure to compare the Bayesian Coherence Ratio of LIGO's
+time-shifted _background_ triggers, _foreground_ triggers and _software injections_. This chapter describes how we have
+adapted the methods from @bcr_paper in our implementation.
+
+
+## Selecting O3 Triggers for BCR analysis
+
+LIGO's third observing run, O3, began on April, 2019, and is going until May 2020 (with a commissioning break during
+October). In the 35 observing weeks since O3 started, based off the $\sim50$ public alerts for gravitational wave
+candidate triggers, LIGO might have tripled the number of detections during all of the first and second observing runs,
+O1 and O2 [@gracedb]. These gravitational wave events are considered candidates, as LIGO is still in the process of vetting the
+candidates (making sure that they are from astrophysical sources rather than terrestrial, spurious noise sources). On
+top of these candidate triggers, there are numerous sub-threshold triggers (triggers that do not have high
+significance).
+
+Ideally, we would like to compute the BCRs for all triggers (foreground and background) produced by LIGO to help improve
+the significance of astrophysically real triggers and decrease the significance of glitches. However, computational
+limitations prevent analysis of all triggers. Instead, we limit the data to several 8-day chunks from O2, selected based
+on the number of foreground triggers identified by [`PyCBC`] in the various chunks, as seen in
+Figure~\@ref(fig:o2TrigCount). Currently, we are using O2 data as it is public, whereas O3 data is not. By analyzing O2
+triggers we can publish our results without any restrictions imposed by LIGO.
+
+(ref:o2TrigCount) Counts of triggers from `PyCBC`'s search through O2 Data (November 15, 2016 - August 26, 2017). Each chunk is roughly 8 days long. The background triggers are collected from timesliding each chunk's data to generate a dataset of roughly 3 million years.
+
+```{r o2TrigCount, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:o2TrigCount)', fig.scap="Count of all triggers in PyCBC O2 search"}
+knitr::include_graphics("images/O2_unfiltered_trigger_counts.png")
+```
+
+Additionally, to confine our search to high-mass sources (systems with total masses roughly between 50-500
+$M_{\odot}$), we restrict the triggers corresponding to a gravitational wave template with durations less than 454 ms.
+These short duration templates correspond to compact binary coalesences with the parameters presented in
+Table~\@ref(tab:parameters) and the search space for these triggers can be visualised in Figure~\@ref(fig:templateBank).
+
+```{r parameters, tidy=FALSE, echo=FALSE, fig.pos= "!h"}
+data <- read.csv('data/454ms_parameters.csv',  stringsAsFactors = FALSE)
+knitr::kable(
+  head(data), booktabs = TRUE, escape =F,
+  col.names = c(" ","Minimum","Maximmum"),
+  caption = "Template Banks's parameters for templates with duration $<454$ ms.",
+  caption.short = "BBH parameters corresponding to durations $<454$ ms"
+)
+```
+
+(ref:templateBank) The template bank used by [`PyCBC`] to search in O2's chunk 14. Our search is constrained to the high-mass parameter space enclosed by the dashed line (triggers with diurations $<45s$.  
+
+```{r templateBank, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:templateBank)', fig.scap="High-mass BCR search space."}
+knitr::include_graphics("images/template_bank_masses.png")
+```
+
+By restricting the [`PyCBC`] triggers only based on the template duration, we acquire common (high FAR) and rare (low
+FAR) triggers. It would be straightforward in principle to broaden our template-duration constraint to encompass all
+triggers produced by all the various search pipelines. However, we refrain from doing so to keep our computational costs
+manageable. A plot of the counts of the triggers in O2 after downsampling the triggers based on the template duration
+can be viewed in Figure~\@ref(fig:o2FilteredTrigCount).
+
+
+(ref:o2FilteredTrigCount) Counts of triggers from `PyCBC`'s search through O2 Data, filtered to include only the triggers with a duration less than 454 ms
+
+```{r o2FilteredTrigCount, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:o2FilteredTrigCount)', fig.scap="Count of triggers in PyCBC O2 search shorter than 454 ms"}
+knitr::include_graphics("images/O2_filtered_trigger_counts.png")
+```
+
+
+
+
+## BCR Analysis Procedure 
+
+### Computational setup
+To compute the evidence making up the BCR (described in Section~\@ref(bcrCalculation)), we use [`bilby_pipe`] to acquire
+the LIGO data in 4s-long data segments containing each trigger (analysis segments) and run the nested-sampling algorithm
+implemented in the `dynesty` library. We utilise [`bilby_pipe`] to generate PSDs via Welch's method for each data
+segment by taking 128 seconds of the data before the analysis segment. If the data quality is not marked as 'Science
+Mode' for either the PSD or analysis data, then the analysis of that trigger is skipped. Gravitational-wave templates
+are produced using `IMRPhenomPv2` ^[`IMRPhenomPv2` is a standard phenomenological waveform model constructed in the
+frequency domain that models the inspiral, merger, and ringdown (IMR) of a compact binary coalescence with aligned spins
+[@khan2016frequency].]. Although gravitational wave templates that are created from numerical relativity simulations
+incorporate more physics than `IMRPhenomPv2`, we still use this waveform as it is faster to evaluate than numerical
+relativity models. 
+
+### Bayesian Parameter Estimation
+
+We restrict the priors for Bayesian parameter estimation on the masses such that we only consider signals that are less
+than 454ms in duration, as presented in Table~\@ref(tab:parameters). The spins are set to be aligned with a range from
+[0,1]. The prior on luminosity distance assigns probability uniformly in comoving volume, with an upper cutoff of 5 Gpc.
+The [`PyCBC`] search that originally produced our set of triggers considered a more comprehensive range of masses and
+spins than we do in the BCR computation for this project. To accommodate this, we prescreened the triggers to only allow
+triggers with masses within our priors.  The run time on a single trigger using the [`dynesty`] implementation of nested
+sampling, with $2,000$ live points and $100$ walkers is usually between $0.5-12$ hours (where the speed often depends on
+the SNR of the data segment).
+
+
+### BCR calculation {#bcrCalculation}
+The Bayesian coherence ratio (BCR), as seen in @bcr_paper, is the odds between the hypothesis that the data comprise a
+coherent, compact binary coalescence signal in Gaussian noise ($\mathcal{H}_S$), and the hypothesis that they instead
+comprise incoherent instrumental features ($\mathcal{H}_I$)—meaning each detector has either a glitch in Gaussian noise
+($\mathcal{H}_N$) or pure Gaussian noise ($\mathcal{H}_G$). For a network of $D$ detectors,
+
+\begin{equation}
+\mathrm{BCR} = \frac{\alpha Z^{S}}{\prod_{i=1}^{D}\left[\beta Z_{i}^{G}+(1-\beta) Z_{i}^{N}\right]}\ , (\#eq:bcr)
+\end{equation}
+where $Z^S$	is the evidence for $\mathcal{H}_S$, and $Z^{G}_i$ and
+$Z^N_i$ are the evidences for $\mathcal{H}_{Gi}$ and $\mathcal{H}_{Ni}$,
+in the $i^{\text{th}}$ detectors. The arbitrary weights $\alpha$ and $\beta$
+parametrize our prior belief in each model:
+
+*  $\alpha = P(\mathcal{H}_S)/P(\mathcal{H}_I)$
+*  $\beta = P(\mathcal{H}_{Gi}|\mathcal{H}_I)=1-P(\mathcal{H}_{N}|\mathcal{H}_I)$
+
+for all $i$ detectors. As most of the data should be noise, we expect both $\alpha$ and $\beta$, to be less than 1.
+These parameters will be tuned to minimize the overlap between the signal and noise trigger populations.
+
+### Trigger sets for BCR analysis
+
+We calculate the BCRs using the procedure described above for three separate trigger sets: background triggers,
+foreground triggers, and software injections. The software injections created using masses, spins and distances that
+span our priors. The software injections are inserted in the O2 data from where the other triggers are retrieved.
+
+We expect the background trigger BCRs to favour the incoherent glitch hypothesis, and the software injection BCRs to
+favour the coherent, compact binary coalescence hypothesis. The foreground trigger BCRs should fall along with the
+background if the foreground trigger is a glitch, and with the software injections if the foreground trigger is a
+gravitational wave candidate. For example,  consider Figure~\@ref(fig:bcrIfar) that contains a plot of the BCRs for
+several O1 background triggers, foreground triggers, and software injections plotted against iFAR (inverse
+false-alarm-rate). In the figure, some foreground triggers fall along the background distribution, these are discarded
+as glitches. The foreground triggers that fall along the bulk of software injections are considered gravitational wave
+candidates.
+
+(ref:bcrIfar) BCR versus iFAR distributions from simulated signals (blue), hardware injections (green), GW events (stars) and background triggers (black), taken from @bcr_paper.
+
+```{r bcrIfar, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:bcrIfar)', fig.scap="BCR vs iFAR for O1"}
+knitr::include_graphics("images/bcr_ifar.png")
+```
+
+
+
+### Making a significance statement
+
+After obtaining the BCRs for the foreground triggers, background triggers, and software injections, we can make a
+statement about the significance of foreground events. For example, consider Figure~\@ref(fig:bcrCdf) which displays ln
+BCR distributions obtained from our BCR pipeline for aLIGO O2 PyCBC chunk three background triggers and software injections.
+The figure also displays the ln BCR values obtained for four foreground triggers. The two foreground triggers with low
+ln BCRs are confirmed glitches. The rightmost foreground trigger is GW170104, a gravitational wave event confirmed by
+LIGO, and shows much stronger evidence for it being a coherent, compact binary coalescence signal, rather than it being
+an incoherent glitch. The remaining foreground trigger corresponds to a gravitational wave candidate identified by the
+IAS group.
+
+(ref:bcrCdf) Histograms represent the survival function (1-CDF) from our selection of 2407 aLIGO O2 PyCBC chunk 3 background triggers (gray) and 648 simulated signals (blue). Vertical lines mark the ln BCRs of two glitches (orange and yellow), IAS's GW170121 (pink), and GWTC-1's GW170104 (dark blue). 
+
+```{r bcrCdf, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:bcrCdf)', fig.scap="BCR distribution example"}
+knitr::include_graphics("images/bcr_cdf.png")
+```
+
+Irrespective of the BCR's Bayesian interpretation, we may treat the BCR as a traditional detection statistic to obtain a
+frequentist estimate of the significance of any given foreground event based on the measured background with a p-value.
+The p-value of foreground events can be obtained from the background's survival function. For example, in 
+Figure~\@ref(fig:bcrCdf), the p-value for GW170104 is 0.99, denoting that it is significantly different from the bulk
+of the background distribution and hence likely to have astrophysical origins. On the other hand, the p-value for the
+IAS candidate is 0.65, demonstrating that this candidate might be a glitch.
+
+
+
+To calculate the p-value, we need first to calculate fits to the BCR probability
+distributions and then tune the BCR's parameters. The following subsections describe these calculations.
+
+
+#### Fitting BCR data
+
+Although the BCR should favour the coherent signal hypothesis for software injections,
+software injections with a very low SNR might not look coherent amongst an ensemble of
+detectors. Hence, software injections are likely to have two probability distributions
+of BCRs, one probability distribution of low BCRs corresponding to the software
+injections that have very low SNRs and another probability distribution of software
+injections with high BCRs. Due to this, we use Gaussian mixture models with two Gaussian
+components to fit our BCR  distributions.
+
+#### Tuning of BCR using KL Distance
+
+The BCR has two tunable parameters as described in Section~\@ref(bcrCalculation),
+$\alpha$ and $\beta$. Altering $\alpha$ translates the BCR probability distributions for
+the triggers while adjusting $\beta$ spreads the probability distributions out. Although
+Bayesian hyper-parameter estimation might be able to determine the optimal values for
+these parameters, an easier approach is to manually adjust the parameters for each data
+chunk's BCR distribution. In this study, we manually adjust $\alpha$ and $\beta$ to
+maximally separate the BCR distributions for the software injections and background
+triggers.
+
+To calculate the separation between the background and software injection BCR
+distributions, we use the Kullback–Leibler divergence (also called relative entropy, or
+KL divergence) to quantify how different how the background and software injection  BCR
+probability distributions are. If the distributions are identical, the KL divergence is
+equal to 0, and the KL divergence increases as the asymmetry between the distributions
+increases. Figure~\@ref(fig:klDivGrid) displays a contour plot of O2 Chunk 14's KL
+divergences between the background and software injection triggers for values of 
+$\alpha$  and $\beta$ ranging from $1^{-10}$ to $1$. We select these ranges for $\alpha$
+and $\beta$ as values outside this range will not make physical sense. Note that for a
+fixed value of $\beta$, the KL divergence stays the same as we alter $\alpha$. This is
+because $\alpha$ translates the BCR values, but does not alter the distributions
+themselves.
+
+(ref:klDivGrid) KL Divergences for O2 Chunk 14's software injection and background trigger BCR probability distributions. The red line indicates the $\alpha$ and $\beta$ parameters with the maximum KL divergence in this range of $\alpha$ and $\beta$.
+
+```{r klDivGrid, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:klDivGrid)', fig.scap="KL Divergence grid for both BCR tunable parameters"}
+knitr::include_graphics("images/kl_divergence_grid.png")
+```
+
+Figure~\@ref(fig:klDivLine) displays a plot of O2 Chunk 14's KL divergences only as
+$\beta$ is adjusted for a fixed $alpha=1^{-6}$. The $\alpha$ and $\beta$ are then selected
+based on the combination that results with the maximum KL divergence.
+
+(ref:klDivLine) KL Divergences for O2 Chunk 14's software injection and background trigger BCR probability distributions with $alpha=1^{-6}$.
+
+```{r klDivLine, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:klDivLine)', fig.scap="KL Divergences for one BCR tunable parameter"}
+knitr::include_graphics("images/kl_distance_14.png")
+```
+
+In Chapter~\@ref(progress) we present some of the preliminary BCR search results we 
+have obtained from the analysis of various O2 data chunks.  
+
+
+
+
+
+[`dynesty`]: https://arxiv.org/abs/1904.02180
+[`bilby_pipe`]: https://lscsoft.docs.ligo.org/bilby_pipe/
+
+
+## Definition of an IMBH
+
+In 1932, Landu and Chandrasekhar theorized the end point of massive
+stars that collapse into singularities as Black holes (BHs). In the
+1970s, X-ray and optical observations from the Cyg-X1 binary star system
+lead to the discovery of the first stellar mass black hole. Shortly
+afterwards in 1974, kinematic measurements of stars near the center of
+our galaxy demonstrated the presence of an SMBH of mass
+$10^6\ \text{M}_{\odot}$ -- Sag A* [@sagA].
+
+These two detections firmly established the existence of stellar mass
+black holes $10^{2} \ \text{M}_{\odot} > \text{M}_\text{BH}$ and
+supermassive black holes (SMBH), $10^{5} \ \text{M}_{\odot} <
+\text{M}_\text{BH}$ in our universe. Since then, more evidence for
+various black holes has been acquired. However, none of the bono fide
+black holes have masses between $10^{2} - 10^{5}\ \text{M}_{\odot}$. Hence,
+we have yet to confirm if Intermediate mass black holes (IMBHs) in the
+$10^{2} - 10^{5} \ \text{M}_{\odot}$ range exist.
+Figure~\@ref(fig:mass-chart) displays the three categories of BHs
+we have discussed.
+
+(ref:mass-chart) A mass chart for dead stars and black holes, taken from @BHmassChartNasa.
+
+```{r mass-chart, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='90%', fig.cap='(ref:mass-chart)', fig.scap="Compact object mass ranges"}
+knitr::include_graphics("images/mass_chart.jpg")
+```
+
+
+
+## Formation Scenarios
+
+To help reflect on the various formation scenarios for IMBHs,  
+as suggested by @miller2003formation,
+one can recall the following Shakespearean quotation:
+
+> "... some are born great, some achieve greatness, and some have greatness thrust upon 'em. "
+>
+> --- Shakespeare:  Twelfth Night, Act II Scene V
+
+This quote inadvertently summarises the popular IMBH formation
+scenarios: some IMBHs might form directly from the collapse of massive
+stars or pristine-gas galaxies [@lodato2006supermassive], some IMBH
+might start as stellar mass black holes that accrete enough mass to fall
+into the intermediate regime [@coleman2002production], and finally some
+IMBH might be created via repeated mergers of stellar mass black holes
+[@2018IMBHreview]. These scenarios along with some others are discussed
+in Section~\@ref(scenarios). Section~\@ref(locations) provides
+hypotheses on where these IMBHs might be located in our universe after
+formation.
+
+### Different Scenarios {#scenarios}
+
+There are various postulated scenarios of IMBH formation. The scenarios
+discussed in this section are displayed in the schematic diagram
+presented in Figure~\@ref(fig:imbh-sources). These formation channels
+can be divided into two main groups based on the seeds that lead to the
+IMBH to form: light and heavy seeds. for a more comprehensive list and
+details of IMBH formation scenarios, refer to @van2004intermediate.
+
+(ref:imbh-sources) Schematic diagram of various formation scenarios of IMBHs and SMBHs (figure adapted from @mezcua2017observational).
+
+```{r imbh-sources, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='90%', fig.cap='(ref:imbh-sources)', fig.scap="IMBH formation channels"}
+knitr::include_graphics("images/imbh_sources.png")
+```
+
+<!--####  Context and formation of IMBHs-->
+
+
+
+<!--2.1. Suggested formation mechanisms for IMBHs-->
+<!--The reason for setting the lower limit on IMBHs at ∼100 M is that this-->
+<!--appears to be in excess of the maximum black hole mass that can form-->
+<!--from a solitary star in the current universe (see [17] for a discussion-->
+<!--in the context of IMBHs). IMBH existence therefore requires new-->
+<!--formation scenarios. The three basic ideas are-->
+
+<!--• The first generation of-->
+<!--stars had negligible metallicity. This reduces radiative opacity and-->
+<!--thus the strength of radiation driven winds, hence stars can start more-->
+<!--massive and retain more of their mass than current stars [17]. • In-->
+<!--young massive stellar clusters that have relaxation times for the most-->
+<!--massive stars that are less than the lifetimes of those stars (about 2.5-->
+<!--million years), mass segregation leads to collisions and mergers of-->
+<!--massive stars. If the combined objects do not have catastrophic wind-->
+<!--mass loss (see [4]), they can, in principle, accumulate up to thousands-->
+<!--of solar masses and might then become black holes with similar masses-->
+<!--[6, 12, 31, 33].-->
+
+<!--• If a seed black hole with a mass of more than ∼200 M-->
+<!--is formed by the previous process in a dense stellar cluster, subsequent-->
+<!--binary–single and binary–binary interactions can allow it to merge and-->
+<!--accumulate mass without being vulnerable to ejection by either-->
+<!--three-body kicks or recoil from asymmetric gravitational wave emission-->
+<!--[10, 11, 25, 26, 28, 29]. Of special interest to LISA observations is-->
+<!--that some simulations suggest that if the initial binary fraction in a-->
+<!--stellar cluster exceeds ∼10% then more than one IMBH can form in that-->
+<!--cluster ([12]; but see [4]). We will explore the consequences of this in-->
+<!--section 3.1. In addition, since massive stellar clusters are often found-->
+<!--near the nuclei of galaxies that are interacting actively, the clusters-->
+<!--themselves can sink to the centers of galaxies where their IMBHs spiral-->
+<!--into the galaxy’s supermassive black hole. We discuss this in section-->
+<!--3.2.-->
+
+
+
+#### Light Seed
+
+The light-seed formation channels discussed in this section are
+displayed in the low-mass region, $10^{1-2} \ \text{M}_{\odot}$, of
+Figure~\@ref(fig:imbh-sources). These channels are:
+
+
+1. *Accretion onto a stellar mass black hole*:
+    BHs can accrete mass from its surrounding at the Eddington rate.
+    This process can increase the BHs mass. Hence, gradual accretion
+    onto a stellar mass BH could lead to the formation of an IMBH.
+    However, the rate of accretion is small, leading to growth timescales
+    longer than the time needed for a BH to cross a molecular
+    cloud, or even the lifetime of such a cloud [@coleman2002production].
+
+
+2. *Population III stars*:
+    Population III stars are a hypothetical, extremely hot and massive stars
+    (with masses $10^{2-3}\ \text{M}_{\odot}$) that form from metal-free
+    primordial gases [@bromm2013formation]. @heger2003massive point out that
+    there is a `mass-gap` between $140-260 \ \text{M}_{\odot}$ a region
+    where if a Population three star collapses, it has no remnant. This mass
+    gap is depicted in Figure~\@ref(fig:massgap). Only if the mass of the
+    star is above $260 \ \text{M}_{\odot}$ can it form a BH of at
+    least half of the original star's mass (and hence form an IMBH).
+
+(ref:massgap) Remnant of massive stars as a function of initial metallicity versus initial mass, taken from @heger2003massive.
+
+```{r massgap, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='90%', fig.cap='(ref:massgap)', fig.scap="Plot of metallicity versus mass depecting the mass gap" }
+knitr::include_graphics("images/hegar_mass_gap.jpg")
+```
+
+3. *Runaway-collisions in Low-Metallicity Clusters*:
+   @vanbeveren2009stellar simulated the dynamics of young dense stellar
+   systems including the effects of stellar wind mass loss. With the
+   inclusion of stellar-wind mass loss they were able to model
+   successive collisions of the most massive stars in the stellar
+   systems. These collisions, known as runaway-collisions, formed very
+   massive stars (with mass $> 120 \ \text{M}_{\odot}$) in their
+   simulations. These $> 120 \ \text{M}_{\odot}$ mass stars left behind
+   BHs with mass $\approx 70\ \text{M}_{\odot}$, and in low metallicities,
+   BHs with mass $\approx 100\ \text{M}_{\odot}$ (at the edge of the IMBH
+   regime). These runaway-collisions IMBHs could hypothetically form in
+   the nuclear cluster of $2^\text{nd}$ generation stars
+   [@mezcua2017observational].
+
+
+4. *Mergers of stellar mass black holes*:
+    In old stellar clusters ($\sim10^8$ yrs old), most of the massive
+    objects are stellar remnants (the end stages of evolution for
+    stars). For many years it had been hypothesised that BHs could form
+    binaries in such clusters and eventually merge. In 2015, LIGO proved
+    the existence of binary BHs (BBHs) by detecting gravitational waves
+    generated by the merger of a BBH [@abbott2016observation]. The
+    remnant mass of this merger was $\sim63\ \text{M}_{\odot}$. Since
+    then LIGO has detected several more GWs from BBHs (see
+    Figure~\@ref(fig:o1o2) for a visual representation of the various GW
+    detections from the first and second LIGO observing runs). Thus, it
+    might be possible to detect gravitational waves from the merger of a
+    BBH that results in the formation of an IMBH, or even an IMBH-BH
+    merger [@salemi2019search]. The expected rates of such mergers are
+    discussed in Section~\@ref(motivations).
+
+    The difficulties with forming IMBHs through BH mergers are that the
+    escape velocities of globular clusters are very low at $\sim50$km/s
+    [@morscher2013retention]. Thus, if another compact object passes by
+    the binary, the binary might get ejected from the globular cluster.
+    Although the ejected binary will still be able to merge, the
+    post-merger remnant will be unable to undergo a $2^{\text{nd}}$
+    generation merger (due to the lack of other BHs in its vicinity),
+    leading to a smaller chance of accumulating mass via mergers.  In a
+    similar vein, if the BBH does manage to merge inside the globular
+    cluster, gravitational waves from the coalescence of the BBH  will
+    carry away linear momentum, causing the renmant post-merger BH to
+    get a get a recoil. This "kick" effect has could lead to the
+    ejection of the post-merger BH from the globular cluster
+    [@favata2004black].
+
+    It is important to note that if one of the BH's has an initial mass
+    $>50 \ \text{M}_{\odot}$ while the other has a comparatively smaller
+    mass, it is possible for the larger BH to undergo successive mergers
+    and stay inside the cluster due to inertia [@coleman2002production].
+
+(ref:o1o2) Diagram of the various detections in O1 and O2, created by Boyand Liu.
+
+```{r o1o2, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:o1o2)', fig.scap="Detections in GWTC-1"  }
+knitr::include_graphics("images/o1o2_detections.png")
+```
+
+
+
+
+#### Heavy Seed
+
+The heavy-seed formation channels discussed in this section are
+displayed in the high-mass region, $10^{5-8} \ \text{M}_{\odot}$, of
+Figure~\@ref(fig:imbh-sources). The two heavy-seed channels in the
+Figure both involve the first metal-free protogalaxies.
+
+In the first channel, if fragmentation is prevented, rapidly inflowing
+dense gas of the protogalaxy can form a supermassive star of  $\sim
+10^{5} \ \text{M}_{\odot}$ [@regan2014direct]. The collapse of such a
+large star can form a black hole of comparable mass [@regan2014direct].
+
+The second channel considers the mergers of metal-free protogalaxies.
+Mergers of metal-free protgalaxies can form massive compact nuclear
+gas disks, with a supermassive star at its center. This star can
+collapse to form an IMBH or even an SMBH of  $\sim10^{8} \
+\text{M}_{\odot}$ [@mezcua2017observational].
+
+
+
+### SMBH formation via IMBHs
+
+We have evidence that SMBHs formed at $z\sim7$ or 0.8 Gyr after the
+formation of the Universe [@mezcua2017observational]. However, we are
+unsure of how these SMBHs form. A popular notion was that stellar mass
+BHs that formed soon after the Big Bang accreted enough mass to form
+into these SMBHs. However, if stellar mass BHs obey the Eddington
+Limit, 0.8 Gyr is too short a time frame for stellar mass BHs to
+accrete enough mass to turn into SMBHs. This is where IMBHs come in --
+instead of stellar mass BH, there might have been IMBH in the early
+universe as the seeds of SMBHs. Hence several formation scenarios of
+SMBHs propose that they pass through a life stage in which they are
+IMBHs [@mezcua2017observational]. Additionally, the IMBHs which do not
+turn into SMBHs should still be present as leftover IMBHs.
+
+
+Based on these concepts, we can try to speculate where we might find
+IMBHs.
+
+
+### Current Locations of IMBHs {#locations}
+
+According to @mezcua2017observational, leftover IMBHs that did not turn
+into SMBHs should be found in dwarf galaxies, globular clusters, young
+star clusters, and finally, some might be found orphaned from globular
+clusters.
+
+One possible formation channel for IMBHs we discussed were from multiple
+BH mergers. If the IMBH that forms from the merger manages to stay
+inside the globular cluster, IMBH might form an active galactic nuclei
+(AGN). If this IMBH's host galaxy is close to other galaxies hosting
+IMBHs, then the galaxies might merge, leading to an IMBH merger.
+Subsequent IMBH mergers like this would turn the IMBH into an SMBH.
+However, if the galaxy is an isolated dwarf galaxy, then the IMBH might
+be able to remain as an IMBH. Hence, IMBHs might be found at the center
+of globular clusters, or in isolated dwarf galaxies.
+
+Another formation channel involved runaway collisions of stars with low
+mentalities. If such runaway collisions can occur in regions with no
+stellar winds, then IMBHs might form in young star clusters where these
+collisions take place.
+
+Some examples of candidate galaxies with IMBHs can be seen in
+Figure~\@ref(fig:example-locations).
+
+(ref:example-locations) The globular cluster 47~Tucanae, the dwarf galaxy NGC~4395 and the spiral galaxy ESO~243-49 are all host-galaxies for candidate IMBHs.
+
+```{r example-locations, echo=FALSE, out.width='30%', fig.show='hold', fig.align='center', fig.cap='(ref:example-locations)', fig.scap="Candidate IMBH host-galaxies"}
+knitr::include_graphics(c("images/47tuc.png", "images/ngc4395.png", "images/eso243.png"))
+```
+
+
+
+## Motivations for finding  {#motivations}
+
+Even though the existence of IMBHs is debatable, these objects if
+discovered, can play a pivotal role in understanding various
+astrophysical processes. If an IMBH were to be observed our
+understanding of the formation and evolution of SMBHs, as well as galaxy
+evolution modeling and theories of strong-field regime of gravity could
+dramatically change [@mezcua2017observational]. We might also understand
+more about tidal disruption of stars [@IMBHcauseTidalDisruption], and
+the quenching of star formation in early galaxies [@kim2011galaxy].
+These, along with some other motivations for detecting IMBHs are
+discussed in this section.
+
+
+1) _SMBH and galaxy evolution_
+
+    Detecting IMBHs will be pivotal in understanding SMBH and galaxy
+    evolution. As mentioned earlier, most formation scenarios of SMBHs
+    propose that they pass through a life stage in which they are IMBHs
+    [@mezcua2017observational].
+
+    Understanding the formation of IMBHs and SMBHs will in turn yield
+    insights to the early structure of the Universe. For example, the
+    number of present-day IMBHs can elucidate how seed BHs formed in the
+    early Universe: either from the death of Pop III stars, the direct
+    collapse of pristine gas, or by stellar mergers in dense stellar
+    clusters (each have different populations for IMBHs).
+
+
+2. _Test of GR_
+
+    The detection of the gravitational capture of a stellar-mass compact
+    object by an IMBH will allow us to test gravity in the strong regime
+    [@GWimbhProspects].
+
+
+
+3) _Source of gravitational waves_
+
+    @abadie2010ratePredictions noted that the portions of GWs of certain
+    IMBH binaries (IMBHBs) and IMBH-BH binaries should be detectable in
+    the advanced LIGO and VIRGO interferometers.
+
+    Simulations by @fregeau2006imbhbRatePrediction have demonstrated
+    that IMBHBs might form during runaway collisions scenarios in young
+    star clusters. According to the simulations, the recently formed
+    IMBHB quickly tighten into a common binary shortly after their birth
+    and quickly inspiral and merge. The rate of such IMBHB mergers
+    detectable by aLIGO and VIRGO is theorized from this simulations to
+    be $\sim10\ \text{yr}^{-1}$. @abadie2010ratePredictions points
+    out another formation channel for IMBHBs: from after the
+    collision of two globular clusters (each with an IMBH). However,
+    no rates for such IMBHB mergers exists.
+
+    In a similar vein, simulations of interactions inside globular
+    clusters demonstrate that IMBH-BH pairs with low mass-ratios may
+    form~[@mandel2008rates]. Such binary systems might undergo
+    tightening through various three body interactions, and eventually
+    merge. Due to the extreme mass ratio of this scenario, the scenerio
+    is named an intermediate mass-ratio coalescence, IMRAC. According to
+    @mandel2008rates such events can occur anywhere from 0-10 times a
+    year.
+
+The rates for such events are tabulated in Table~\@ref(tab:ligo-rates).
+
+
+(ref:imbhRatePrediction) @fregeau2006imbhbRatePrediction
+
+(ref:mandel2008rates) @mandel2008rates
+
+(ref:rodriguez2015bbhRatePredictions) @rodriguez2015bbhRatePredictions
+
+```{r ligo-rates, tidy=FALSE, echo=FALSE}
+
+data <- read.csv('data/imbh_rates.csv',  stringsAsFactors = FALSE)
+
+knitr::kable(
+  head(data), booktabs = TRUE, escape =F,
+  col.names = c("Black Holes","Merger Type","Event Rate $r$ [1/yr]","Reference"),
+  caption = 'A table describing the different detection rate estimates in the aLIGO band.',
+  caption.short = "High-mass detection rates in aLIGO" 
+)
+```
+
+
+<!--A match-filtered-->
+<!--observation of the inspiral would yield the redshifted masses-->
+<!--of the black holes, directly confirming the existence of IMBHs.-->
+<!--It would also yield the luminosity distance to the source; with-->
+<!--enough observations, constraints could be placed on the cosmic-->
+<!--history of star formation in dense, massive clusters. Detection-->
+<!--of the ringdown signal from the merger product will also yield-->
+<!--its spin, which may provide insight into its formation history-->
+
+
+
+## Observational Methods
+
+To make a definitive detection of an IMBH, a clear measurement of the
+IMBH's mass is required [@koliopanos2018intermediate].  There
+are two broad categories for observational methods employed to detect
+IMBHs, direct and indirect observational methods.
+
+### Direct observational method
+
+Some of the direct methods used to measure SMBH masses, such as dynamic
+kinematic measurements and reverberation mapping, have been employed
+to measure the masses of various IMBH candidates. However, none of these
+studies have proved conclusive as the sphere of influence of IMBHs are
+too small to be resolved.
+
+Dynamic kinematic measurements of individual sources orbiting a BH, such
+as kinematic measurements of orbits around Sgr A* (see
+Figure~\@ref(fig:sag-a)), is the most reliable method of measuring BH
+mass. @47TucHostIMBH studied the motion of 19 millisecond pulsars in the
+globular cluster 47-Tucanae and described their motion using an IMBH
+with mass ${\sim2300\ \text{M}_{\odot}}$. However, others were able to
+describe the motions without an IMBH [@freire2017long].
+
+(ref:sag-a) Inferred orbits of 6 stars around Sgr A*, giving us mass of the SMBH [@sagA].
+
+```{r sag-a, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:sag-a)', fig.scap="Inferred orbits around Sgr A*"}
+knitr::include_graphics("images/sagitarius_a.png")
+```
+
+Reverberation mapping is a procedure where time-delays of radiation from
+a BH and its orbiting gas can be used to infer mass of the BH. A
+schematic diagram in Figure~\@ref(fig:revmap) illustrates this concept
+this concept. @ncg4395 analysed the timing delays from an IMBH candidate
+in Dwarf galaxy NGC-4395 and estimated that a IMBH with mass
+${\sim3.6\times10^5\ \text{M}_{\odot}}$ was the source of the time-delay
+radiation. However, because we cannot discount the possibility that the
+radiation from the source could be anisotropic or non-linear (leading to
+overestimating the true source mass), reverberation mapping by
+itself is inadequate.
+
+
+(ref:revmap) Radiation received from a direct path after scattering off moving clouds that surrounds the black hole allows inferring the velocity of clouds and hence mass of SMBH.
+
+```{r revmap, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='90%', fig.cap='(ref:revmap)', fig.scap="Reverberation mapping schematic"}
+knitr::include_graphics("images/revmap.png")
+```
+
+Another drawback of direct methods are that they cannot probe beyond
+only the most nearby galaxies. To be able to study even the smaller, less
+luminous, and further away IMBHs, indirect methods of observation can be
+used.
+
+### Indirect Observational Methods
+
+There are several indirect observational methods that have been employed
+to search for IMBHs (see @mezcua2017observational for a detailed
+study on the various methods and their results). Here, we discuss
+looking for IMBHs by studying low-luminosity AGNs, ultraluminous x-ray
+sources, and gravitational waves.
+
+#### Studying x-ray emission
+AGNs create unique optical spectra due to the ionisation of gas,
+surrounding the BH, from x-rays released from accretion discs
+@elvis2000structure. When the emission lines from this optical spetra are
+studied alongside the broad-line emission lines from the central BH of
+the AGN, a virial estimate of the BH mass can be calculated
+[@IMBHinLLAGN]. Although several groups have claimed to classify IMBHs
+by studying such AGNs, the results have large uncertainties and are
+contradictory.
+
+In a similar vein there have been numerous studies of x-ray emissions
+(from off-nuclear extragalactic sources) exceeding the Eddington limit
+for stellar mass BH [@kaaret2017ultraluminous]. These sources, known as
+ultraluminous X-ray sources (ULXs) make a large IMBH candidate set
+(under the assumption that the emission is isotropic). One such IMBH
+candidate labeled HLX-1 located in the galaxy ESO~243-49 is considered
+to have a mass of $\text{M}\sim5000\ \text{M}_{\odot}$ due to a luminosity of
+$L_x\sim10^{42}\ \text{erg s}^{-1}$ [@hlx1].
+
+#### Studying GWs
+Another pathway to detecting an IMBH is with gravitational waves emitted
+from compact binary black hole systems. As the frequency at which
+gravitational waves are emitted is inversely proportional to the chirp
+mass of the system, higher mass systems correspond to lower frequency
+gravitational waves [@abbott2016properties]. Currently, there are three
+ground based detectors (LIGO-Hanford, LIGO-Livingston and Virgo) that
+are operational and have successfully made GW detections of binary BH
+(BBH) and binary neutron star (BNS) mergers [@abbott2019gwtc]. As
+depicted in Figure~\@ref(fig:sensitivity), these detectors are not
+sensitive to supermassive ($\sim10^9\ M_{\odot}$) and massive
+($\sim10^{4-7}\ M_{\odot}$ binary systems. However, as discussed
+in Section~\@ref(motivations), these detectors might be able to detect
+GWs from an IMBH system with a total mass less than $500\
+\text{M}_{\odot}$ [@salemi2019search].
+
+
+(ref:sensitivity) Approximate signal ranges and sensitivities for some potential GW sources and GW detectors. Figure was created using the tool provided by @moore2014gravitational.
+
+```{r sensitivity, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='90%', fig.cap='(ref:sensitivity)', fig.scap="Gravitational wave detector sensitivities."}
+knitr::include_graphics("images/sensitivity.png")
+```
+
+In July 2019, the LIGO-Virgo scientific collaboration released the
+outcomes of an IMBH search they conducted on their first and second
+observing runs. Although their work did assist in constraining IMBHB
+merger rates, they were unable to detect an IMBH binary merger
+[@salemi2019search].
+
+A potential reason they provided for why no IMBHBs were found was
+because of detector noise. As IMBHs have high mass, the IMBH GW signals
+have a low frequency and a duration lasting less than a second
+[@salemi2019search]. This corresponds to a short-duration trigger in the
+LIGO data. A trigger is a section of LIGO data identified by data
+searching pipelines to potentially harbour some GW signal data (more on
+triggers in Section~\@ref(searches) where the search pipelines are
+discussed). In the ground based GW detectors, there are many spurious
+instrumental noise events, that fool the pipelines into considering them
+as triggers. These instrumental-triggers are called glitches. Luckily,
+unlike triggers from astrophysical sources, glitches do not often occur
+at the same time or with the same morphology across the various GW
+detectors -- they are often incoherent. However, as glitches appear very
+similar to expected short duration IMBH signals, it can be difficult
+distinguishing the two. For example, consider Figure~\@ref(fig:compare)
+that compares a plot of a glitch on the left and a plot of a high-mass
+GW candidate on the right.
+
+
+(ref:compare) Spectrogram of a glitch on the left, and a candidate GW trigger on the right.
+
+```{r compare, echo=FALSE, fig.show='hold', fig.asp=.7, fig.width=6, fig.align='center', out.width='45%', fig.cap='(ref:compare)', fig.scap="Comparing glitches to high-mass candidates."  }
+knitr::include_graphics(c("images/glitch.png", "images/L1_spectrogram_logy_0.png"))
+```
+
+
+@salemi2019search stated that increases of
+the GW detector network sensitivity and search techniques in future
+runs might result in a detection of GWs from an IMBH. The following
+Section~\@ref(searches) discusses some of these searches, and introduces
+a novel search for IMBHs that can better discern between IMBH signals
+and glitches.
+
+
+
+## Current searches for GWs {#searches}
+As LIGO records data, generic unmodelled GW transients and modelled GW signals are
+searched for in the data using low-latency search pipelines. These searches can identify
+candidate GW events in near-real-time timescales, enabling the possibility of performing
+follow-up electromagnetic spectrum observations [@abbott2018prospects]. Using such 
+searches, the LIGO-Virgo collaboration was able to identify 11 gravitational wave 
+sources in the first and second observing runs of Advanced LIGO [@abbott2019gwtc]. 
+External searches conducted by groups such as the Institute for Advanced Study have added
+10 other potential gravitational wave sources [@IAS0; @IAS1; @IAS2; @UdallIMBHsearch].
+In this section we delve into some low-latency LIGO searches and
+non-LIGO searches, and discuss the differences between them.
+
+### LIGO's Unmodelled GW Searches {#unmodeledSearches}
+The unmodelled searches are performed without prior information about
+expected GW signal waveforms. These searches look for statistically
+significant regions of the data with excess-power, or bursts, and are
+effective at identifying GW transients that can last for
+$10^{-3}-10^{1}$s [@abbott2016observing]. Some examples of such short
+duration GWs are from the coalescence of compact binary-black holes,
+from unknown sources, and from other astrophysical phenomena as
+described in [@abbott2018prospects].
+
+Two unmodelled-generic search piplines for GWs are the Coherent
+WaveBurst  pipeline, [`cWB`], and omicron-LALInference-Bursts pipeline,
+[`oLIB`]. Both pipelines first locate coincident events in data
+from the online GW detectors (using different methods). Following
+the tabulation of coincident events, the pipelines provide
+a significance for the coincident events in  unique ways.
+
+Once coincident events are obtained, the [`cWB`] pipeline  uses a
+likelihood analysis to reconstruct the GW signals associated with the
+unique events. Once the best waveform (similar in both
+detectors) has been constructed, the reconstructed signal is subtracted  
+from the data. The remaining energy after the subtraction is typically  
+ low for coherent GW events, and high for incoherent and spurious  
+ instrumental noise events (glitches).
+
+ On the other hand, the [`oLIB`] pipeline runs Bayesian parameter
+ estimations for all the coincident events by modelling GW signals and
+ glitches using sine Gaussian wavelets. It then calculates two Bayes
+ factors, one to compare the coherent signal versus Gaussian noise
+ hypothesis, `BSN`, and another to compare the coherent signal versus
+ incoherent glitch hypothesis, `BCI`.
+
+
+@abbott2016observing provides a detailed summary of these two pipelines
+in relation to GW150914's detection.
+
+### LIGO's Modelled GW Searches {#modeledSearches}
+The previous section discusses how generic searches can be used to
+look for GWs from unknown sources. This method is used because  
+we do not know what GWs we should expect from unknown sources.
+
+In contrast, there have been numerous studies and predictions for what
+GWs we expect from the coalescence of compact binary coalescence (CBCs)
+including GWs from BNS, BBH and NSBH mergers [@abbott2016ligo]. Modelled
+GW searches such as templated searches for transient GWs use prior
+information about our expectations of GWs into searches. Two templated
+searches for GWs from CBCs are the [`PyCBC`] [@biwer2019pycbc], and
+[`GstLAL`] pipelines [@sachdev2019gstlal].
+
+The [`PyCBC`] and [`GstLAL`] use match-filtering, a method of extracting
+GW signals from noisy data, by cross-correlating the data from different
+detectors and a predicted GW waveform signal --  a template
+[@abbott2016ligo]. Both pipelines use the same waveform templates, but
+use different techniques to apply the match-filtering. They also
+implement unique methods of estimating the background and weeding out
+glitches from astrophysically significant coincident triggers.
+
+
+
+
+## Ranking statistics of Current Searches
+
+All the current searches discussed in Section~\@ref(searches), although
+implemented in different ways, ultimately use a `ranking statistic` to
+make statements about the significance of certain triggers over others.
+In principle, to make a rigorous statement about the statistical
+significance of a pair of coincident triggers, it is necessary to know
+the probability that a given trigger was produced by instrumental noise,
+rather than an actual GW. This likelihood may be estimated empirically
+from the value of the ranking statistic for a large representative set
+of triggers known with certainty to be spurious. Such a set of
+signal-free triggers is denoted _background_, in contrast to the
+_foreground_ of candidates that may contain a signal.
+
+
+Because detectors cannot be physically shielded from gravitational
+waves, ad hoc data analysis techniques must be used to estimate the
+background. One such strategy is to construct time slides by applying
+relative time offsets (longer than the light-travel time between sites)
+between the data of different detectors. An schematic illustration of
+such a time slide is demonstrated in \@ref(fig:timeslide). Detection
+significance can then be inferred, in a frequentist way, by comparing
+the value of the ranking statistic for a time-coincident foreground
+trigger to that of time-slid background triggers. The rate at which
+background triggers are produced with a given value of the ranking
+statistic is usually referred to as the _false-alarm rate_ (FAR).
+
+
+(ref:timeslide) Timeslide schematic diagram: coincident data on the left time-slid data on the right.
+
+```{r timeslide, echo=FALSE, fig.show='hold', fig.asp=.7, fig.width=6, fig.align='center', out.width='45%', fig.cap='(ref:timeslide)', fig.scap="Timeslide schematic"  }
+knitr::include_graphics(c("images/t0.png", "images/t1.png"))
+```
+
+Efficient signal detection requires a ranking statistic that extracts
+the most information from the data to discriminate between
+noise and weak astrophysical signals. However, existing CBC searches are
+not optimal in this sense: they do not incorporate knowledge of all
+features that may distinguish GWs from noise. Moving towards an optimal
+statistic is a great challenge, but one large step is to demand that
+foreground triggers in two or more detectors should be better described
+as coherent gravitational-wave signals, rather than incoherent glitches.
+Importantly, it is not enough to provide some measure of coherence: one
+must also prove that an incoherent model is not more successful at
+describing the data. To achieve this, the Bayesian coherence ratio,
+`BCR`, proposed by @bcr_paper can be utilised.
+
+## Bayes' Theorem
+
+Before introducing the BCR, it is necessary to understand Bayes' theorem. Bayes' theorem allows us to use some knowledge
+that we already have about some parameters of a mathematical model, the _prior_ $\pi(\theta)$, to help us calculate the
+probability of getting the parameters given some data, the _posterior probability_ $p(\theta|d)$.  Mathematically,
+Bayes' theorem can be written out as
+
+\begin{equation}
+{p(\theta|d)} = \frac{\mathcal{L}(d|\theta)\pi(\theta)}{\mathcal{Z}}\ , (\#eq:bayeTheorem)
+\end{equation}
+
+where $\mathcal{L}(d|\theta)$, or the likelihood, is the conditional probability of getting some data $d$ given that the
+data can be modelled with some parameters $\theta$, and $\mathcal{Z}$ is the marginalised likelihood known as the
+evidence. The evidence is a single number that describes how well a model fits the data. The larger the evidence, the
+better the model is at fitting the data.
+
+
+## The Bayesian Coherence Ratio {#BayesianCoherenceRatio}
+
+The `BCR` is an odds (evidence ratio) comparing two hypotheses: `there's
+a coherent GW in the data, plus Gaussian noise` vs `there's only
+incoherent Gaussian noise or a glitch (modeled as a CBC) in each
+detector` [@bcr_paper]. It's a generalized version of the `BCI`,
+described in Section~\@ref(modeledSearches), in which the second
+hypothesis is swapped for `there's only a glitch (modeled as a CBC) in
+each detector`. The `BCR` has 2 tunable parameters ($\alpha$ and
+$\beta$) that allow us to better separate signals from noise.
+
+An example of how the `BCR` performed to distinguish glitches from
+actual GW signals is shown in Figure~\@ref(fig:bcrSnr). The figure
+demonstrates that while SNR was unable to distinguish the signals
+(simulated/hardware/actual signals) from the background triggers, the
+`BCR` was able to successfully do so.
+
+
+(ref:bcrSnr) BCR versus SNR distributions from simulated signals (blue), hardware injections (green), GW events (stars) and background triggers (black), taken from @bcr_paper.
+
+```{r bcrSnr, echo=FALSE, fig.pos= "!h", fig.asp=.7, fig.width=6, fig.align='center', out.width='75%', fig.cap='(ref:bcrSnr)', fig.scap="BCR versus SNR for O1"}
+knitr::include_graphics("images/bcr_vs_snr.png")
+```
+
+Figure~\@ref(fig:bcrSnr) also demonstrates that some simulated signals and LVT1510's 
+significance increases when using the BCR inplace of using the SNR as a detection 
+statistic. This was the initial motivation behind our current work. 
+
+
+[`cWB`]: https://gwburst.gitlab.io/
+[`PyCBC`]: https://pycbc.org/
+[`oLIB`]: https://arxiv.org/pdf/1511.05955.pdf
+[`GstLAL`]: https://lscsoft.docs.ligo.org/gstlal/
