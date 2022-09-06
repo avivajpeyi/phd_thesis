@@ -146,6 +146,28 @@
 
 
 
+% %%%%% Github 
+\usepackage{fontawesome5}
+
+% \makeatletter
+\newcommand{\github}[1]{%
+  \href{#1}{\textcolor{gray}{\faGithubSquare}}%
+}
+% \makeatother
+
+\newcommand{\citeme}{\textcolor{red}{CITE}}
+
+%%% QUOTE
+
+\usepackage{csquotes}
+\SetBlockThreshold{2}
+\newcommand\myblockquote[2]{%
+  \blockquote{\hspace*{2em}\emph{`#1'}\hfill(#2)}\par}
+
+
+%%%%
+
+
 %%% TABLE
 \usepackage{nicematrix}
 \usepackage{varwidth}
