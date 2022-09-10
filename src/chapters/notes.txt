@@ -107,3 +107,29 @@ With this flood of data, we can test theories as never before and develop a more
 The amount of astronomical data is growing so rapidly that human brains cannot keep up. Fortunately, researchers are developing artificial intelligence that can recognize patterns and details that would otherwise elude us. In an article in the online component of this issue ("Deep Learning"), my colleague Marc Huertas-Company describes our “face recognition for galaxies” project, which applies deep learning technology on a cosmic scale. And just as such methods developed for computer science can be applied to astrophysics, new big data technologies coming out of the astrophysical field can lead to advances in other areas of science. (See the President’s Letter for more about big data research across scientific fields.)
 
 Computers can help us analyze scientific data and find correlations, but the ultimate significance of all these data is that they fuel the human imagination—and by extension, they inspire the ideas that will lead to new tools, new observations, and new, even deeper insights into the nature of the cosmos. And although novel scientific results seem to come in daily, the big data era is sparking new questions at an unprecedented rate. We still don’t know what dark matter is or what dark energy is, and we don’t know the first thing about the landscapes on planets orbiting other stars. The big data era is just the first small step toward a kind of exploration that we can scarcely imagine. —Joel Primack, President of Sigma Xi, and professor of physics and astrophysics at the University of California, Santa Cruz
+
+
+
+
+The universe has been 
+
+
+With an inordinate amount of data being produced using modern instruments, astronomy has become more data driven than ever before. 
+
+Modern astronomy finds its basis in the streams of data delivered by ground and space-based telescopes across all wavelengths with frontiers emerging in the field of neutrino physics, high-energy astrophysics, and gravitational waves. With the enormous amount of data funnelling through the observational centres or high-end simulations, knowledge processing and accumulation in astronomy is growing exponentially. However, it took more than three long decades for us to cross the threshold of technology-driven science. 
+
+
+
+An accelerating amount of data is now being received to help us understand the physical universe. With the advent of the internet age and the establishment of public data archives, we have also democratised data access and its processing. This coming of age in astronomy not only revolutionized it but also led to a paradigm shift in the nature of astronomical research and its method over the turn of the last century.
+
+
+
+Evolving from location and laboratory-intensive research to global collaborative data-driven projects, the world has come quite far.  We are in the transition into the ever-evolving new. This also gives us an opportunity to archives, assess, and communicate the becoming of data-driven astronomy from the 1980s until now. It is the historicization of such intense research material over these decades that makes us understand the intellectual movement in the field but also helps us assess emerging fields like astroinformatics.  The gradual shift from analogue to digital observational methods led to the shift in data-collection regimes. Astronomers have moved from photographic, and electronic, to born-digital data, which moved the discovery away from the telescope itself to hard drives and data archives. This not only becomes a study in the history of technology but also an intellectual history of knowledge networks and global collaborations.  
+
+
+
+With the proposed project we intend to archive this gradual shift and intellectual underpinnings of the evolution of astronomical knowledge processing through data-driven methods across the globe.  Two primary perspectives that hold the project together are how the efforts of astronomers to integrate computers into their research endeavours and started collecting data digitally created a new realm of astrophysical research, and how the making of new-age instruments for observational astronomy created innovative methods of investigation that required data processing. This is looked into as a study in the evolution and contextual relevance of bigger chips, CCDs, global interconnectedness, faster internet/bandwidth, more powerful computational processing, and especially how sky surveys allow us to repeat observations over several observational spectrums.  
+
+
+
+The project places this evolution also in the context of the variable processes of social and cultural interaction within and outside the community in the past several decades. 

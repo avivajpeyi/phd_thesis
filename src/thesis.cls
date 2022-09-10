@@ -155,7 +155,11 @@
 }
 % \makeatother
 
-\newcommand{\citeme}{\textcolor{red}{CITE}}
+
+%%% CUSTOM COMMANDS
+\newcommand{\commentcmd}[3]{{\color{#2}\emph{#1}: #3}}
+\newcommand{\todo}[1]{\commentcmd{TODO}{orange}{#1}}
+\newcommand{\citeme}{{\color{red}(citation needed)}}
 
 %%% QUOTE
 
@@ -172,6 +176,7 @@
 \usepackage{nicematrix}
 \usepackage{varwidth}
 \usepackage{xcolor}
+\usepackage{enumerate}
 
 %%% DATES
 
