@@ -6,11 +6,10 @@ Questions about the infinite cosmos and our place in it have intrigued great min
 To answer these questions, astronomers construct instruments to tap into the cosmos' ocean of data and devise statistical methods to make inferences.
 Each drop of cosmic data improves inference and takes us to the answers we seek.
 However, until quite recently, astronomy has existed in a relatively data-poor environment. 
-This situation has been flipped thanks to the advent of modern instruments and computers, leaving astronomers with rich datasets not easily described by traditional methods.
-Some astronomers are turning to data-driven approaches to make inferences with the vast quantities of data now available.
+Now, with the assistance of computers and sophisticated instruments, astronomers have access to massive datasets not easily described by traditional methods.
+In response, some astronomers are turning to data-driven approaches to make inferences with the vast quantities of newly acquired data .
 This section takes a look back at areas of astronomy that have recently seen significant data improvements and have provided new insights into the nature of stars, planets, and even black holes.
 These conversations will spark ideas and provide impetus for the rest of the thesis.
-
 
 
 \section{Observational HR-Diagrams through the ages}
@@ -87,10 +86,9 @@ Some compact objects give away their positions via electromagnetic (EM) radiatio
 Others reveal themselves via gravitational wave (GW) radiation emitted due to an oscillating mass quadrupole moment.
 Any system with a gravitational quadrupole changing with time produces changes in its gravitational field, resulting in the emission of energy as gravitational waves.
 Gravitational-wave astronomy gives us a new tool to examine the cosmos that complements classic electromagnetic astronomy.
-Using gravitational waves, we may investigate systems such as binary black holes, which are undetectable to the naked eye, and potentially get fresh understanding into objects such as neutron stars that would otherwise be inaccessible.
+Using gravitational waves, astronomers can research binary black holes and neutron stars that would otherwise be inaccessible.
+However, it was only recently that astronomers were able to detect GWs. 
 
-
-\subsection{A brief history of GW detection}
 %% History of GW
 In 1974, Russell Hulse and Joseph Taylor discovered a pulsar signal using the Arecibo radio telescope.
 Measurements revealed that the pulsars' orbital period fluctuates repeatedly every few hours, indicating it is in orbit with a hidden companion.
@@ -102,14 +100,6 @@ LIGO was constructed in 1999, but it was not until 2014 that the first gravitati
 Since then, the LIGO-VIRGO-KAGRA (LVK) collaboration has recorded several petabytes of data and astronomers have discovered more than ninety gravitational wave (GW) signals from compact binary mergers.
 Individually, these events have provided astronomers with interesting information about various astrophysical objects. 
 Taken together, the events form a population that can be studied as a whole. 
-The remainder of this section introduces the LVK collaborations efforts to 
-\begin{enumerate}[i]
-\item search for GW signals from compact binary mergers,
-\item decode the GW signals to decipher the properties of the system that generated the signal, and 
-\item study ``demographics'' of the merging black hole populations.
-\end{enumerate}
-This thesis touches on these broad categories, illustrated in Figure~\ref{fig:gw_pipeline}. 
-This section provides some more background for each of the main topics covered. 
 
 \begin{figure}
 \begin{center}
@@ -119,6 +109,7 @@ This section provides some more background for each of the main topics covered.
 \end{center}
 \end{figure}
 
+The following sections introduce the LVK collaborations efforts to (i) search for GW signals from compact binary mergers, (ii) decode the GW signal parameters that describe the merger, and (iii) study ``demographics'' of the merging black hole populations (each category and its goals are outlined in the schematic Figure~\ref{fig:gw_pipeline}).
 
 
 \subsection{GW searches}  \label{sec:searches}
@@ -139,7 +130,16 @@ Modeled searches for GW signals from the coalescence of compact binary coalescen
 The different waveforms are chosen from a ``template-bank'' of potential waveforms, where each waveform corresponds to different signal parameters. 
 
 
-These search methods have been able to successully identify more than 90 CBC GWs, whose masses are plotted in Figre~\ref{}.
+\begin{figure}
+\begin{center}
+  \centerline{\includegraphics[width=1.1\linewidth]{src/figures/gw_catalog.png}}
+  \caption{\textbf{CBC GW merger events:}  \github{https://github.com/avivajpeyi/cbc_gw_catalog_plotter}}
+  \label{fig:cbc_mergers}
+\end{center}
+\end{figure}
+
+
+These search methods have been able to successully identify more than 90 CBC GWs, whose masses are plotted in Figre~\ref{fig:cbc_mergers}.
 If the detector data contained only gaussian noise and the occasional gravitational wave signal, these search pipelines would successfully identify all signals above some signal-to-noise ratio. 
 Unfortunately, some instrumental noise artifacts (glitches) can also be found in the detector data. 
 The search pipelines can mistake `glitches' as gravitational wave signals. 
@@ -184,64 +184,76 @@ These methods can also be parallelized to speed up the inference process.
 For a detailed discussion on the parallelization of nested sampling and how it can boost gravitational wave inference, refer to Chapter~\ref{cp:pbilby}. 
 
 
+\subsection{Interpretting GW signals}
+
+After GW searches and parameter estimation pipelines  identify and characterise signals, astronomers can begin interpreting the inferred parameters .
+Mass and spin inferences help determine where (eg isolated-space, globular clusters, or active galaxies) these binaries form and merge .
+Each individual observation's inferred parameter can reveal the binary's formation pathway.
+
+For example, consider the inferred parameters for GW190521 and GW190425. 
+GW190521's parameters show that the signal originated from an asymmetric BBH merger with masses of $85^{+21}_{-14}M_{\odot}$ and $66^{+17}_{-18}M_{\odot}$ \citep{Abbott:2020tfl}.
+The remnant object was the first direct detection of an IMBH with a mass surpassing the pulsational-pair instability mass gap.
+Due to its large initial masses, some believe that this may be a second-generation merger and hence is improbable to be a field-merger. 
+On the other hand,  parameter estimation of GW190425 suggests the event's binary had a non-circular orbit, indicating it may have come from a globular cluster.
+
+In a similar vein, the community has recently been discussing GW151226. 
+Initial research concluded that GW151226 was the result of the merging of two BHs with conventional masses and spins, as seen in Figure~\ref{fig:gw151226_cases} (case A).
+However, recent work suggest that the GW emerged from a peculiar system: asymmetric BBH merger with even spins misaligned (case B).
+
+%% GW151226 Figure
 \begin{figure}
 \begin{center}
-  \centerline{\includegraphics[width=1.1\linewidth]{src/figures/gw_catalog.png}}
-  \caption{\textbf{CBC GW merger events:}  \github{https://github.com/avivajpeyi/cbc_gw_catalog_plotter}}
-  \label{fig:cbc_mergers}
+  \centerline{\includegraphics[width=1.1\linewidth]{src/figures/gw151226_cases.png}}
+  \caption{\textbf{GW151226 Cases:}  }
+  \label{fig:gw151226_cases}
 \end{center}
 \end{figure}
 
-\subsection{Interpretting GW signals}
+It's uncertain which of these cases is most likely, making it difficult to establish this event's formation channel.
+Chapter~\ref{cp:deep_followup} presents a ``deep follow-up'' tool to determine which case is  more probable.
+It employs Bayesian model selection to evaluate the posterior odds of two points by computing the points marginal likelihood.
+The posterior odds for case A versus B are near 1, reflecting that it is valid to interpret GW151226's binary to have been from either case.
 
-After the CBC GW searches identify signals and parameter estimation pipelines describe the properties of the merging binaries that generated the signals, astronomers can begin interpretting the implications of the various binaries discovered.
-The mass and spin deductions of the merging systems can help us answer: where do these bodies exist in the cosmos? 
-Do they exist in the centers of active galaxies, or in isolated space?
-Each GW observation and the inferred parameters can provide insight into the formation channel that led to the binary's current configuration.
+\subsection{GW population inference}
 
-For example, parameter estimation of GW190521 indicate that the signal orginated from an asymmetric binary black hole merger with masses of $85^{+21}_{-14}M_{\odot}$ and $66^{+17}_{-18}M_{\odot}$ and a total mass of $151^{+32}_{-28}M_{\odot}$ \citep{Abbott:2020tfl}.
-The remnant object was an IMBH with a total mass exceeding the pulsational-pair instability mass gap.
-Another example is the parameter estimation of GW190425. 
-\citep{}'s analysis using an eccentric waveform demoonstrates that this event may have occured ini XXX.
+With many GW events, astronomers can also study the ensemble properties of merging systems, such as how masses and spins of all detected BHs are distributed, using hierarchical inference techniques.
+The LVK has used several hypotheses in hierarchical inference studies to map ensemble mass and spin distribution features to astrophysical processes  described by stellar evolution and population synthesis models.
+Recent work on the black hole spin population, for example, has looked into computing the fraction of signals expected to result from isolated-field binary mergers versus dynamical binary mergers.
+In Chapter~\ref{ch.agn}, we look into yet another binary merger channel: the active galactic nuclei (AGN) channel.
+AGNs are promising environments for the assembly of merging binary black hole systems with large masses (e.g. GW190521~\cite{gw190521_agn}), asymmetric masses (e.g. GW190521~\cite{gw190425_agn}), and a variety of spin configurations~\cite{agn_spin_population_models}. 
 
-In a similar vein, the community has recently been discussions GW151226. Initial work deduced that this GW was from the merger of two black holes (BHs), both with standard masses and spins (case A). However, recent work has deduced that the GW might have originated from a strange system: one BH could be much larger than the other and with a faster spin (case B)! A diagram representing these cases can be seen below on the right side of Figure 1.
-
-
-
-But, it gets tricky to answer such questions if our deductions of the masses and spins are incorrect! So, in my recent study, I have built a "deep follow-up" tool to determine which masses and spins better describe a given GW event. 
-
-
-The "deep follow-up" method involves drilling into these cases to determine which binary BH system better describes the GW. First, we pin down some deduced properties of the merging black hole system, such as the mass-ratio q (the ratio of smaller BH mass divided by the bigger BH mass) and xeff (the effective spin of the binary in the z-direction). The pinned value for the initial and new results is on the left side of Figure 1. We then use Bayesian inference at these pinned values. The output allows us to compare case A and case B. We find that both the standard (case A) and irregular (case B) black hole pairs can describe GW151226, giving the event something like a dual-identity! 
-
-This method is descriebed in paper 2. 
+\begin{figure}
+\begin{center}
+  \centerline{\includegraphics[width=1.\linewidth]{src/figures/agn_spins.png}}
+  \caption{\textbf{AGN BBH-spins:} Different AGN age $\tau_{\rm AGN}$ and density $\rho_{\rm AGN}$ values can lead to different binary black hole spins. }
+  \label{fig:agn_spins}
+\end{center}
+\end{figure}
 
 
-\subsection{GW population inferenc}
+In Chapter~\ref{ch.agn} we draw on simulations of BBH systems in AGN to propose a phenomenological model for the distribution of black hole spins of merging binaries in AGN disks. 
+The model incorporates distinct features that make the AGN channel potentially distinguishable from other channels such as assembly in the field and in globular clusters. 
+The model parameters can be mapped heuristically to the age $\tau_{\rm AGN}$ and density $\rho_{\rm AGN}$ of AGN disks. 
+A schematic illustration of the model is presented in Figure~\ref{fig:agn_spins}. 
+In the Figure's top right corner where the AGN is old and dense, the BBH orbital angular momentum and component BH spins align with the central SMBH spin. 
+Coversly, in the lower left where the AGN is young and dilute, all spins are missaligned. The other two corners represent unique spin orientations described in further detail in Chapter~\ref{ch.agn}.
+We estimate the extent to which these different populations of binaries in AGNs can be distinguished.
+If the majority of merging black holes are assembled in AGNs, future gravitational-wave observations may provide insights into the dynamics of AGN disks.
 
-Finally, 
-The Universe contains different ``flavours'' of black holes. While ``stellar'' mass black holes are 10-50 times the mass of our Sun, supermassive black holes are millions and billions of times the mass of our Sun (like the one in interstellar)! Supermassive black holes (SMBH) are so big that they manage to -- quite literally -- become the centres of their galaxies. Their gravity pulls in celestial bodies like stars, neutron stars and smaller black holes into orbit around them (illustrated in Figure 1). 
+\section{The hunt for exoplanets}
 
-The gravitational force also pulls in surrounding gas and dust into a spiralling orbit with an inevitable end in the SMBH. As the gas spirals in, it gets hot due to friction and can even generate bright "jets" of radiation. The spiralling gas is known as an accretion disk, and these can be very thick and even hide some of the celestial bodies inside. Unfortunately, what goes on between bodies inside accretion disks is hidden from us -- our eyes cannot see through these gassy curtains. However, gravitational waves from the mergers of these bodies help spill the beans: they pass through the gassy curtain and let us study both the accretion disk and merging bodies!
- 
-Scientists have been simulating bodies inside accretion disks to understand how many mergers can happen inside these disks and what the orientations of the bodies are before merging. Based on these simulations, we have constructed a "model" to study the accretion disks' age and density (ie, if the disk is dilute or viscous) from the gravitational waves shot off from the mergers! A visual representation of the model is in Figure 2. 
-Figure 2
- 
-Active galactic nuclei (AGN) are promising environments for the assembly of merging binary black hole (BBH) systems. Interest in AGNs as nurseries for merging BBH is rising following the detection of gravitational waves from a BBH system from the purported pair-instability mass gap, most notably, GW190521. Active galactic nuclei have also been invoked to explain the formation of the high-mass-ratio system, GW190814. We draw on simulations of BBH systems in AGN to propose a phenomenological model for the distribution of black hole spins of merging binaries in AGN disks. The model incorporates distinct features that make the AGN channel potentially distinguishable from other channels such as assembly in the field and in globular clusters. The model parameters can be mapped heuristically to the age and density of AGN disks. We estimate the extent to which different populations of mergers in AGNs can be distinguished. If the majority of merging black holes are assembled in AGNs, future gravitational-wave observations may provide insights into the dynamics of AGN disks.
-
-
-
-
+Humans have long sought for exoplanets, planets beyond our solar system, to answer questions like how did the Earth form, are we alone in the universe, and are there other planets like ours out there? 
+Similar to the 
 
 
-\section{The hunt for exoplanets
-
-Humans have long sought for exoplanets, or planets beyond our solar system. In recent years, advances in technology have allowed us to find and study many exoplanets. We have now found thousands of exoplanets, and we are learning more about them every day.
+In recent years, advances in technology have allowed us to find and study many exoplanets. We have now found thousands of exoplanets, and we are learning more about them every day.
 
 There are many different types of exoplanets, and they can be very different from the planets in our solar system. Some exoplanets are very large, while others are very small. Some exoplanets are very close to their star, while others are very far away. And some exoplanets are very hot, while others are very cold.
 
 Despite these differences, there are some things that all exoplanets have in common. All exoplanets orbit a star, and all exoplanets are made of the same basic materials as the planets in our solar system.
 
-This section reviews the 
+
+This section reviews the hust for exoplanets and some of what we have learned from the exoplanets we have founds so far. 
 
 \begin{itemize}
     \item History: We have looked for exoplanets for along time, first few exoplanets found 
@@ -254,6 +266,64 @@ This section reviews the
     \item our work 
 \end{itemize}
 
+\section{Explanets from the 90s to now}
+
+
+% Jay paper https://arxiv.org/pdf/1604.03092.pdf
+
+Sometimes scientists stumble upon discoveries. 
+The first discovery of an exoplanet was one such stumble.
+While the globe was reeling from the outbreak of WW1, Walter Adams recorded the spectrum of a white dwarf star on a glass plate. 
+This star's spectrum contains unusual heavy elements including magnesium and iron. 
+As these would not naturally form on the planet, these pollutants must have come from the shattered remains of an exoplanet. 
+Hence,making this the first evidience for an exoplanet. 
+Unfortunately, Adams didn't realise this, and his discovery remained kept in the archives until 2016 — when Jay Farihi unearthed it.
+
+So, the credit for the first exoplanet goes to astronomers Aleksander Wolszczan and Dale Frail.
+In 1992, these scientists nooticed that the pulsar PSR B1257+12 had periodic variatinos in its pulses.
+After intensive study, Wolszczan and Frail came up with an explanation for why that was: it had two planets around it. One was three and the other four times the mass of Earth, and they rotated around every 67 and 98 days, rounded up.
+However this was a very perplexing planetary system to the astronomers, 
+
+normally When a star explodes, usually the planets in that system are destroyed or flung out by a shockwave. But after the violence settles down, the gas and dust can recondense. This, in effect, means that the three planets in B1257 may be made out of parts of the planets that came before them. Given the extreme radiation in these systems, almost no one has ever thought that the B1257 system could host life.
+
+So, while the 1992 discovery was major news, it meant astronomers had the first verified planets around another star, but no proof of planets around a main sequence star like the Sun. That kind of confirmation was still a few years away.
+
+
+
+Reportedly, his find was a chance coincidence. Out of a catalog of radial velocity signatures, he chose an F-type star called 51 Pegasi, roughly 50 light-years distant. He was trying to calibrate his planet finding code, opting for the star as one of a few promising candidates. It fell into place that night, a strong signal roughly every four days.
+
+Measurements placed its minimum mass near Jupiter —  meaning the object was without a doubt a planet. While astronomers considered it possible to have such periods, it wasn’t necessarily expected to find one in such a short period. “At this time, I was the only one in the world who knew I had found a planet,” Queloz told the BBC in 2016. “I was really scared, I can tell you.”
+
+
+This discovery was followed in 1995 by the discovery of 51 Pegasi b, the first exoplanet found to be orbiting a normal Sun-like star. The work of Swiss astronomers Michel Mayor and Didier Queloz used the radial velocity technique to prove the existence of the planet orbiting its parent star every 4.23 days. They used the ELODIE spectrograph (see Figure 2) at the Observatoire de Haute Provence in France. 51 Peg b has a similar mass to Jupiter but is much closer to its star, being more than 7 times nearer than Mercury is to our Sun. This affords it the understated designation of a 'hot Jupiter'.
+
+
+he early days of exoplanet detections were marked by their focus on star-by-star analyses, almost always through radial velocity, making radial velocity one of the most successful methods for finding exoplanets, discovering 746 worlds as of March 2018. Compare that to 90 found through some form of direct imaging (which is limited to large, hot, and young planets) or 67 through microlensing — chance happenstance when a heavy object passes in front of a background star and acts like a giant magnifying glass. Those are the third and fourth most successful methods for finding exoplanets.
+
+But far and away the most successful approach has been the transit method of finding exoplanets. It’s found 2,789 in all within the same timeframe as the radial velocity headcount. There are 3,705 planets out there, so transiting planets make up 75 percent of all planets discovered. But around 2,648 of those 2,789 planets have been found by one spacecraft: Kepler.
+
+If you take out the worlds discovered by NASA’s Kepler mission, we have only 1,000 planets to work with. That’s because Kepler served as a survey of just one small patch of sky, counting as many planet transits as it could. Previous surveys dealt with a few dozen stars at a time — if that. Kepler, if nothing else, showed that planets weren’t rare at all, and there are millions — or trillions — out there, waiting for our discovery.
+
+Astronomy continued to do its thing for a few more years, with exoplanets popping up here and there after a series, of dedicated studies. And then in 2009, the game changed completed with NASA’s launch of the Kepler Space Telescope.
+
+Kepler was an exoplanet hunter extraordinaire, dedicated to finding planets orbiting other stars. And it did a fantastic job at it, generating a catalog of thousands of worlds over the course of its nearly 10-year lifespan.
+
+With Kepler, astronomers found planets bigger than Jupiter, and ones smaller than Mercury. They even found planets bigger than Jupiter orbiting closer to their parent star than Mercury does in our solar system. They found crazy worlds that rain iron, and others locked in ice. Other missions found exoplanets around our nearest neighbor star, Proxima Centauri, and a cache of seven Earth-like planets in the TRAPPIST-1 system 40 light-years away.
+
+New surveys are on the case, like TESS, NASA’s Transiting Exoplanet Survey Satellite, and ground-based observatories around the globe. Exoplanets are providing a wealth of information about how planets and solar systems form throughout the galaxy…and the possibility of another habitable world is just too tantalizing to pass up.
+
+But it was only in 1995 that astronomers spotted the first planets orbiting sunlike stars outside of our solar system.
+
+In the last decade, in particular, the number of planets known to orbit distant stars grew from under 100 to well over 2,000, with another 2,000 likely planets awaiting confirmation. Most of these new discoveries are due to a single endeavor 
+
+
+The first extrasolar planet discovered was found in 1995 orbiting the star 51 Pegasi.1 At that time, most astronomers presumed we would eventually discover many planets manifesting characteristics virtually identical those in our solar system.
+
+To date, astronomers have discovered 854 planets outside the solar system for which they have also measured orbital and physical parameters. Not even one of these planets matches the characteristics of any of the solar system’s planets. The only one that comes close is Upsilon Andromedae e. Its mass compared to Jupiter’s is 1.06+ (because the inclination of Andromedae e’s orbit is not known, only a minimum mass has been determined). Its distance from its host star compared to Jupiter’s distance from the Sun is 1.01.
+
+
+
+% https://sites.pitt.edu/~stepup/ExoplanetHistory.html
 
 
 \begin{figure}
@@ -272,6 +342,8 @@ This section reviews the
   \label{fig:exo_categories}
 \end{center}
 \end{figure}
+
+exoplanets with measured diameters and masses. Rocky planets form a tight line (lower left), but super-Earths/mini-Neptunes have widely varying atmospheres and densities. At Jupiter’s size, increasing mass no longer increases the diameter of a planet (upper right). Most of Kepler’s discoveries would be in the super-Earth/mini-Neptune region, but few of them have measured masses, so they do not appear here. This graph was originally published in "T
 
 
 \begin{figure}
