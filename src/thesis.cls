@@ -178,6 +178,11 @@
 \usepackage{xcolor}
 \usepackage{enumerate}
 
+
+% % planet symbols
+% \usepackage{mathabx}
+
+
 %%% DATES
 
 \usepackage[en-US]{datetime2}
