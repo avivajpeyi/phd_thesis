@@ -524,6 +524,7 @@
 %\cleardoublepage
 }
 
+
 \newcommand\dedicatory[1]{
 \btypeout{Dedicatory}
 \thispagestyle{plain}
