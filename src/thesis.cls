@@ -151,7 +151,7 @@
 
 % \makeatletter
 \newcommand{\github}[1]{%
-  \href{#1}{\textcolor{gray}{\faGithubSquare}}%
+  Source code on Github~\href{#1}{\textcolor{gray}{\faGithubSquare}}.%
 }
 % \makeatother
 
@@ -179,8 +179,23 @@
 \usepackage{enumerate}
 
 
-% % planet symbols
-% \usepackage{mathabx}
+% % % planet symbols
+\newcommand*{\mathabxbfamily}{\fontencoding{U}\fontfamily{mathb}\selectfont}
+\DeclareFontFamily{U}{mathb}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathb}{m}{n}{
+      <5> <6> <7> <8> <9> <10> gen * mathb
+      <10.95> mathb10 <12> <14.4> <17.28> <20.74> <24.88> mathb12
+      }{}
+\newcommand*{\Sun}{{\text{\mathabxbfamily\char"40}}}
+\newcommand*{\Mercury}{{\text{\mathabxbfamily\char"41}}}
+\newcommand*{\Venus}{{\text{\mathabxbfamily\char"42}}}
+\newcommand*{\Earth}{{\text{\mathabxbfamily\char"43}}}
+\newcommand*{\Mars}{{\text{\mathabxbfamily\char"44}}}
+\newcommand*{\Jupiter}{{\text{\mathabxbfamily\char"45}}}
+\newcommand*{\Saturn}{{\text{\mathabxbfamily\char"46}}}
+\newcommand*{\Uranus}{{\text{\mathabxbfamily\char"47}}}
+\newcommand*{\Neptune}{{\text{\mathabxbfamily\char"48}}}
+\newcommand*{\Pluto}{{\text{\mathabxbfamily\char"49}}}
 
 
 %%% DATES
@@ -241,7 +256,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
-\usepackage[centerlast,small,sc]{caption}
+\usepackage[centerlast,small,sc,singlelinecheck=false,justification=raggedright]{caption}
 \setlength{\captionmargin}{20pt}
 \newcommand{\fref}[1]{Figure~\ref{#1}}
 \newcommand{\tref}[1]{Table~\ref{#1}}
@@ -545,6 +560,8 @@
   \@mainmatterfalse}
 \endinput
 %%
+
+
 %% End of file `Thesis.cls'.
 
 
