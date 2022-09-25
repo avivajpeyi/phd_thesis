@@ -25,3 +25,10 @@ This had made many people very angry and has been widely regarded as a bad move.
 
 “Would it save you a lot of time if I just gave up and went mad now?”
 ― Douglas Adams, The Hitchhiker's Guide to the Galaxy
+
+
+P. C. Gregory (2005) writes:
+Our [scientific] understanding comes through the development of theoretical models which are capable of explaining the existing observations as
+well as making testable predictions. ... Fortunately, a variety of sophisticated mathematical and computational approaches have been developed
+to help us through this interface, these go under the general heading of
+statistical inference.

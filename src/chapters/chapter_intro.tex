@@ -6,7 +6,7 @@ Questions about the infinite cosmos and our place in it have intrigued great min
 To answer these questions, astronomers construct instruments to record observational data from the universe and devise statistical methods to make inferences.
 Each drop of cosmic data improves inference and takes us to the answers we seek.
 However, until quite recently, astronomy has existed in a relatively data-poor environment. 
-Now, with computers and sophisticated instruments, astronomers can access study datasets not easily analysed by traditional methods. \textit{\textbf{I didn't really understand the phrase ``traditional methods''. I think the point here is that modern data is so large that it's impossible to analyse by eye and requires supercomputers.}}
+Using computers and sophisticated instruments, astronomers can now access massive datasets.
 In response, some astronomers are turning to data-driven approaches to make inferences with the vast quantities of newly acquired data.
 This section looks back at areas of astronomy that have recently seen significant data analysis improvements and have provided new insights into the nature of stars, planets, and even black holes.
 This discussion will spark ideas and provide the impetus for the rest of the thesis.
@@ -16,17 +16,17 @@ This discussion will spark ideas and provide the impetus for the rest of the the
 
 \textbf{The first Observational HR-Diagram:}
 In 1872, astronomers began recording spectroscopic data for thousands of stars in the Henry Draper Catalogue~\cite{Cannon:1918:AnHar}.
-Antonia Maury, a female astronomer, working in the Harvard observatory, noticed that some stars in the catalog were much brighter than other stars of the same color and sorted those brighter stars into a different category from their less-luminous brethren~\cite{1914_HR_data}. 
+Antonia Maury, a female astronomer working in the Harvard observatory, noticed that some stars in the catalog were much brighter than other stars of the same color and sorted those brighter stars into a different category from their less-luminous brethren~\cite{1914_HR_data}. 
 Several years later, Einjar Hertzpsrung, working on his star classification project in 1905, noticed the same thing as Maury: some stars had very similar colors but very different brightness~\cite{1914_HR_data}.
 With more data available in 1913, Henry Norris Russell demonstrated the effect far more strikingly. 
-Russel plotted the absolute magnitude against spectral type for Maury's stars, nearby stars with parallaxes measured at the time, stars from the open cluster Hyades, and several moving groups ($\sim200$ stars in total). 
+Russell plotted the absolute magnitude against spectral type for Maury's stars, nearby stars with parallaxes measured at the time, stars from the open cluster Hyades, and several moving groups ($\sim200$ stars in total). 
 This plot, an observational Hertzpsrung-Russel (HR) diagram, has been recreated with modern stellar data in Figure~\ref{fig:HR-diagrams}a.
 
 \begin{figure}
 \begin{center}
   \centerline{\includegraphics[width=1.2\linewidth]{figures/hr_diagram.png}}
-  \caption{\textbf{Observational HR-Diagrams through the ages}: Catalog stars' color index plotted on the horizontal axis and absolute magnitude on the vertical axis. Different regions of the diagram depend on the stars' masses, chemical composition, ages, and stages in the stellar life cycle. The color scale represents the number of stars in each portion of the diagram (black represents lower numbers of stars, and brighter colors correspond to increasingly higher numbers of stars). Panel (a) uses stars cataloged in 1914~\cite{Russell:1914:PA, 1914_HR_data}, panel (b) uses 1993 Hipparcos stars~\cite{HIPPARCOS}, and panel (c) uses 2022 Gaia stars~\cite{GaiaMission, GaiaEDR3}. Note: to make this plot, the 1914 stellar data was cross-referenced from the modern Hipparcos catalog.
- \github{https://github.com/avivajpeyi/hr_diagram_past_to_present}}
+  \caption{\textbf{Observational HR-Diagrams through the ages}: Catalog stars' color index is plotted on the horizontal axis and absolute magnitude on the vertical axis. Different regions of the diagram depend on the stars' masses, chemical composition, ages, and stages in the stellar life cycle. The color scale represents the number of stars in each portion of the diagram (black represents lower numbers of stars, and brighter colors correspond to increasingly higher numbers of stars). Panel (a) uses stars cataloged in 1914~\cite{Russell:1914:PA, 1914_HR_data}, panel (b) uses 1993 Hipparcos stars~\cite{HIPPARCOS}, and panel (c) uses 2022 Gaia stars~\cite{GaiaMission, GaiaEDR3}. Note: the 1914 stellar data was cross-referenced from the modern Hipparcos catalog to make this plot.
+\github{https://github.com/avivajpeyi/hr_diagram_past_to_present}}
   \label{fig:HR-diagrams}
 \end{center}
 \end{figure}
@@ -37,12 +37,12 @@ Brighter stars are displayed in the top part of the diagram, while dimmer stars 
 Bluer (hotter-surface) stars are on the left, and redder (cooler-surface) stars are on the right. 
 Russell noted that most of the plotted stars fell in a band from the upper left to the lower right~\cite{Russell:1914:PA}.
 He indicated this region with lines (the gray dashed lines reconstructed Figure~\ref{fig:HR-diagrams}a).
-Russell and Hertzsprung also noticed a separate category of bright but cool red stars in the upper right corner~\cite{Russell:1914:PA, Hertzsprung:1911:POPot}.\footnote{Unfortunately, Hertzsprung's work was left unoticed for a few years. Eddington chided Hertzsprung on this matter: ``One of the sins of your youth – to publish important papers in inaccessible
+Russell and Hertzsprung also noticed a separate category of bright but cool red stars in the upper right corner~\cite{Russell:1914:PA, Hertzsprung:1911:POPot}.\footnote{Unfortunately, Hertzsprung's work was left unnoticed for a few years. Eddington chided Hertzsprung on this matter: ``One of the sins of your youth – to publish important papers in inaccessible
 places''~\cite{Nielsen:1964:Cent}.}
-They realized that these bright-cool red stars have a large surface area to produce high luminosity at low temperatures~\cite{Russell:1914:PA, Maury:1897:AnHar, Hertzsprung:1911:POPot}. 
+They realised that these bright-cool red stars have a large surface area to produce high luminosity at low temperatures~\cite{Russell:1914:PA, Maury:1897:AnHar, Hertzsprung:1911:POPot}. 
 Hertzsprung hence dubbed these as the ``giant" stars~\cite{Nielsen:1964:Cent}.  
 Consequently, he named the less-luminous low-temperature red stars ``dwarf" stars. 
-Russell recognized that the red dwarfs were just the bottom end of the band of stars within the gray lines in Figure~\ref{fig:HR-diagrams}a. 
+Russell recognised that the red dwarfs were just the bottom end of the band of stars within the gray lines in Figure~\ref{fig:HR-diagrams}a. 
 Hence, Russell extended the grouping of ``dwarf" stars to the entire sequence, the sequence now known as the ``main sequence."
 Even though the plot only contained a few stars, it provided Russell with a convenient way to illustrate his ideas about stellar evolution:
 \myblockquote{The giant stars then represent successive stages in the heating up of a body and must be
@@ -56,10 +56,10 @@ Fortunately, since 1914, technological advances have created much larger samples
 
 
 \textbf{Jump to Hipparcos:}
-Fastforward to seventy years in the future, the European Space Agency launched Hipparcos Satellite in 1989~\cite{HIPPARCOS}.\footnote{Hipparcos, an acronym for HIgh Precision PARallax COllecting Satellite, is also reference to Hipparchus, the ancient Greek astronomer who drew up the first accurate star map.}
+Fast forward to seventy years in the future, the European Space Agency launched Hipparcos Satellite in 1989~\cite{HIPPARCOS}.\footnote{Hipparcos, an acronym for HIgh Precision PARallax COllecting Satellite, is also reference to Hipparchus, the ancient Greek astronomer who drew up the first accurate star map.}
 One of the Hipparcos mission's primary goals was to provide a higher resolution observational HR diagram to obtain a detailed structure of stars with $M_v>0$ magnitude~\cite{HIPPARCOS}. 
 In its four years of operation, this satellite cataloged nearly 120,000 stars~\cite{HIPPARCOS}. 
-The Hipparcos catalog stars with low parallax errors, plotted in Figure~\ref{fig:HR-diagrams}b,  show many more details than those in the 1914 HR diagram. 
+The Hipparcos catalog stars with low parallax errors, plotted in Figure~\ref{fig:HR-diagrams}b, show many more details than those in the 1914 HR diagram. 
 Firstly, the vertical arm leading off the main sequence and turning to the right is much better defined -- this is the red giant branch indicating that as massive stars get older, they swell and become brighter and redder.
 Similarly, the lower left of the diagram shows the white dwarf branch. 
 The white dwarf region displays where the less massive stars (like our sun) that cannot undergo a supernova as they get older end up. 
@@ -82,8 +82,8 @@ This data has enabled astronomers to drive theoretical work and make inferences 
 
 This section demonstrates that novel observational data can spark major scientific breakthroughs, flashpoints of discovery. 
 Each catalog of stars introduced here marks such a flashpoint. 
-Each catalogs' stellar data improved the calibration of stellar models, study of stellar populations, and  overall comprehension of the cosmos. 
-The next two sections of this chapter focus on two other areas where new astronomical data have created flashpoints. 
+Each catalog's stellar data improved the calibration of stellar models, the study of stellar populations, and  overall comprehension of the cosmos. 
+The following two sections of this chapter focus on two other areas where new astronomical data have created flashpoints. 
 
 \section{The dawn of Gravitational wave astronomy}
 
@@ -100,11 +100,11 @@ However, it was only recently that astronomers were able to detect GWs.
 In 1974, Russell Hulse and Joseph Taylor discovered a pulsar signal using the Arecibo radio telescope~\cite{Hulse:1975:ApJL}.
 Measurements revealed that the pulsars' orbital period repeatedly fluctuates every few hours, indicating it is in orbit with a hidden companion.
 Hulse and Taylor noted that the orbital period was decaying -- the pulsar and its companion were inspiralling~\cite{Hulse:1975:ApJL}.
-After observing the system for another 30 years, they determined that the decrease of the orbital period resulted from the binary releasing gravitational waves, the first \textit{\textbf{indirect}} observation of gravitational waves.
+After observing the system for another 30 years, they determined that the decrease of the orbital period resulted from the binary releasing gravitational waves, the first indirect observation of gravitational waves.
 
 This indirect detection of gravitational waves paved the groundwork for the Laser Interferometer Gravitational-Wave Observatory, LIGO~\cite{Barish:1999:PhT}. 
 LIGO was constructed in 1999, but it was not until 2015 that the first gravitational wave from a binary black hole merger, GW150914, was identified~\cite{abbott2016observation}.
-Since then, the LIGO-VIRGO-KAGRA (LVK) collaboration has recorded several petabytes of data, and astronomers have discovered more than ninety gravitational wave (GW) signals from compact binary mergers~\cite{abbott2019gwtc, gwtc2, gwtc3}.
+Since then, the LIGO-VIRGO-KAGRA (LVK) collaboration has recorded several petabytes of data, and astronomers have discovered more than ninety gravitational wave signals from compact binary mergers~\cite{abbott2019gwtc, gwtc2, gwtc3}.
 Individually, these events have provided astronomers with interesting information about various astrophysical objects. 
 Taken together, the events form a population that can be studied as a whole. 
 
@@ -121,21 +121,23 @@ The following sections introduce the LVK collaborations efforts to (i) search fo
 
 \subsection{GW searches}  \label{sec:searches}
 
-As LIGO records data, the data is immediately searched for generic, unmodeled  GW transients and modelled GW signals using low-latency search pipelines (there are also continuous and stochastic gravitational wave searches, although they are not discussed here). 
+As LIGO records data, the data is immediately searched for generic, unmodeled  GW transients and modelled GW signals using low-latency search pipelines (there are also continuous and stochastic gravitational-wave searches, although they are not discussed here). 
 These searches can identify candidate GW events in near real-time timescales, enabling the possibility of performing follow-up electromagnetic observations~\cite{abbott2018prospects, gw_search_review}.
 
-The unmodeled gravitational wave searches, like the Coherent Wave-Burst \textsc{cWB}~\cite{cWB_search} and Omicron-LIB \textsc{oLIB} piplines~\cite{oLIB} are performed without prior information about expected signal waveforms and instead involve cross-correlating the LIGO and Virgo detector data~\cite{gw_search_review}.
+The unmodeled gravitational-wave searches, like the Coherent Wave-Burst \textsc{cWB}~\cite{cWB_search} and Omicron-LIB \textsc{oLIB} piplines~\cite{oLIB} are performed without prior information about expected signal waveforms and instead involve cross-correlating the LIGO and Virgo detector data~\cite{gw_search_review}.
 The cross-correlation is performed on the detector strain time series to look for excess power or bursts in the overlap region between the LIGO Hanford and LIGO Livingston detectors and between the LIGO Hanford and Virgo detectors, respectively \cite{gw_search_review}. 
 Another unmodeled pipeline is \textsc{BayesWave}~\cite{Cornish:2015:CQGra}, which performs a \textit{follow-up} on the \textsc{cWB} candidates~\cite{bayeswave_as_followup, abbott2019all}. 
-\textsc{BayesWave} fits the \textsc{cWB} candidates with both a GW signal model and an explicit glitch model (instrumental noise artefacts), both made up of sine-Gaussian wavelets and calculates the Bayesian evidence ratio (Bayes factor) between the two competing hypotheses. \textit{\textbf{add a simple qualitative description of a Bayes factor}}
+\textsc{BayesWave} fits the \textsc{cWB} candidates with both a GW signal model and an explicit glitch model (instrumental noise artefacts), both made up of sine-Gaussian wavelets and calculates the Bayesian evidence ratio, the Bayes factor, between the two competing hypotheses. 
+The Bayes Factor is a measure of evidence for one model over another and can be used to compare models.
 Such methods are effective at identifying GW transients that can last for
 $10^{-3}-10^{1}$s~\cite{abbott2016observing}. 
-Unmodeled gravitational wave searches are powerful tools as they may help detect short-duration signals produced by unknown and known phenomena for which we have not yet developed good theoretical models~\cite{gw_search_review}. 
+Unmodeled gravitational-wave searches are powerful tools as they may help detect short-duration signals produced by unknown and known phenomena for which we have not yet developed good theoretical models~\cite{gw_search_review}. 
 For example, short-duration signals from high mass binary black hole mergers, supernovae, cosmic strings, and unknown astrophysical phenomena as described in~\citep{abbott2018prospects}.
 
-While unmodeled searches look for the unknown,  modelled or targeted gravitational wave searches \textit{\textbf{gravitational-wave (note the hyphen) is a compound noun when describing things like a gravitational-wave search}} look for signals from known sources~\cite{abbott2016ligo}. 
+While unmodeled searches look for the unknown,  modelled or targeted gravitational-wave searches look for signals from known sources~\cite{abbott2016ligo}. 
 Modeled searches for GW signals from the coalescence of compact binary coalescence (CBCs), such as \textsc{PyCBC}~\cite{biwer2019pycbc},
-\textsc{GstLAL}~\cite{sachdev2019gstlal}, \textsc{MBTA}~\cite{MBTA} and \textsc{SPIIR} pipelines~\cite{SPIIR} use prior information about our expectations of GWs in searches~\cite{gw_search_review}. These searches compute the inner product between a gravitational waveform and the data stream and attempt to optimize the inner product by testing different waveforms. 
+\textsc{GstLAL}~\cite{sachdev2019gstlal}, \textsc{MBTA}~\cite{MBTA} and \textsc{SPIIR} pipelines~\cite{SPIIR} use prior information about our expectations of GWs in searches~\cite{gw_search_review}. 
+These searches compute the inner product between a gravitational waveform and the data stream and attempt to optimise the inner product by testing different waveforms. 
 The different waveforms are chosen from a template bank of potential waveforms, where each waveform corresponds to different signal parameters. 
 
 \begin{figure}
@@ -146,15 +148,16 @@ The different waveforms are chosen from a template bank of potential waveforms, 
 \end{center}
 \end{figure}
 
-These search methods have been able to successfully identify more than 90 CBC GWs, whose masses are plotted in Figure~\ref{fig:cbc_mergers}~\cite{gwtc3}.
+These search methods have successfully identified more than 90 CBC GWs, whose masses are plotted in Figure~\ref{fig:cbc_mergers}~\cite{gwtc3}.
 If the detector data contained only gaussian noise and the occasional gravitational wave signal, these search pipelines would successfully identify all signals above some signal-to-noise ratio. 
-Unfortunately, some glitches can also be found in the detector data~\cite{gw_search_review}. 
+Unfortunately, astronomers can also find glitches in the detector data~\cite{gw_search_review}. 
 The search pipelines can mistake glitches for gravitational wave signals. 
 Hence, the search pipelines also test signal coherence and compute `ranking statistics' to determine the statistical significance of candidates to prevent false positives. 
 
 Efficient signal detection requires a ranking statistic that extracts the most information from the data to discriminate between noise and weak astrophysical signals~\cite{bci, bayeswave_as_followup, bcr_paper, bootstrap_gw, bcr_gw151216,bcr_gw151216, bayesian_odds}.  
 However, existing CBC searches are sub-optimal: they do not provide a complete description of all features that may distinguish GWs from noise~\cite{bci}. 
-Moving toward an optimal statistic (one that has a complete and accurate description of the signal and noise model) is a great challenge, but one way toward a better ranking statistic may be to demand that foreground triggers in two or more detectors should be better described as coherent gravitational-wave signals rather than incoherent glitches~\cite{bci}.
+Moving toward an optimal statistic (one that has a complete and accurate description of the signal and noise model) is a great challenge. 
+Still, one way toward a better ranking statistic may be to demand that foreground triggers in two or more detectors should be better described as coherent gravitational-wave signals rather than incoherent glitches~\cite{bci}.
 Importantly, it is not enough to provide some measure of coherence: one must also prove that an incoherent model is not more successful at describing the data. 
 
 The Bayesian coherence ratio, \textsc{BCR}, proposed by \citet{bcr_paper} (based on \citet{bci}) can help take a step towards this optimal statistic~\cite{bci, bayeswave_as_followup, bcr_paper, bootstrap_gw, bcr_gw151216,bcr_gw151216, bayesian_odds}. 
@@ -166,36 +169,35 @@ Similar to how \textsc{BayesWave} can be used as a follow-up for \textsc{cWB} ca
 The core of parameter estimation in gravitational waves is Bayes' theorem. 
 Given a model with parameters $\theta$, some data $d$ and the \textit{likelihood} $\mathcal{L}(d|\theta)$ of the data given the model, Bayes' theorem states that the \textit{posterior} $p(\theta|d)$ of model parameters given the data is 
 \begin{equation}
-{p(\theta|d)} = \frac{\mathcal{L}(d|\theta)\pi(\theta)}{\mathcal{Z}}\ , \label{eq:bayeTheorem}
+{p(\theta|d)} = \frac{\mathcal{L}(d|\theta)\pi(\theta)}{\mathcal{Z}(d)}\ , \label{eq:bayeTheorem}
 \end{equation}
-where $\pi(\theta)$ is the \textit{prior} of the model parameters, and $\mathcal{Z}$ is the marginalized likelihood known as the
+where $\pi(\theta)$ is the \textit{prior} of the model parameters, and $\mathcal{Z}(d)$ is the marginalised likelihood known as the
 \textit{evidence}. 
-The evidence is a single number that describes how well a model fits the data and is given by 
+The evidence is the probability of the data itself, given the model:
 \begin{equation}
 Z(d) = \int_\theta \mathcal{L}(d|\theta)\pi(\theta)d\theta\ .
 \label{eq:evid}
 \end{equation}
-\textit{\textbf{it's really the probability density of the data itself, given the model; i.e., its qualitative meaning is ``how likely is the data, given the model''}}
-As the evidence is a probability of the data irrespective of model parameters, it is a valuable quantity to compare various models and determine which model better describes some data. \textbf{\textit{again, subtle point, but its really telling you if the data are described better by such and such a model, not whether the model is a better description of the data}}.
-
+As evidence is a probability of the data independent of model parameters, the evidences of two models on the same data help determine which model better describes the data.
 Using gravitational wave models and equation~\ref{eq:bayeTheorem}, astronomers can compute the posterior probability of gravitational wave model parameters given some data containing a gravitational wave signal~\cite{abbott2018prospects}.
 However, as CBC GW models can use more than 15 parameters to describe a signal, evaluating the posterior probability for gravitational waves is computationally expensive. 
-For example, consider evaluating the posterior probability at $10$ gridpoints for each of the $15$ GW parameters.
-This results in a huge number of points ($10^{15}$ points) to evaluate the posterior.
-Furthermore, one would need to use many more grid points to represent the continuous parameter space accurately.
-Finally, gravitational wave models incorporate complex physics, so they can be computationally slow to evaluate. 
-Altogether, evaluating the posterior overall points of parameter space is an insurmountable computational challenge.
+For instance, consider analysing the posterior probability at ten grid points for each of the fifteen GW parameters.
+This results in a massive number of points ($10^{15}$) for evaluating the posterior.
+Additionally, far more grid points are required to accurately represent the continuous parameter space.
+Moreover, because gravitational wave models incorporate sophisticated physics, their evaluation can be computationally expensive.
+Altogether, evaluating the posterior over every point in parameter space represents an insurmountable computational obstacle.
 
-An alternative way to estimate the posterior over a large parameter space is to utilize approaches such as Markov chain Monte Carlo (MCMC) and nested sampling to produce multivariate draws from the posterior~\cite{bilby_paper, bilby_gwtc, dynesty_paper, skilling2004, skilling2006}. 
-These methods can also be parallelized to speed up the inference process. 
-For a detailed discussion on the parallelization of nested sampling and how it can boost gravitational wave inference, refer to Chapter~\ref{ch.pbilby}. 
+An alternative way to estimate the posterior over a large parameter space is to utilise approaches such as Markov chain Monte Carlo (MCMC) and nested sampling to produce multivariate draws from the posterior~\cite{bilby_paper, bilby_gwtc, dynesty_paper, skilling2004, skilling2006}. 
+These methods can also be parallelised to speed up the inference process. 
+For a detailed discussion on the parallelisation of nested sampling and how it can boost gravitational-wave inference, refer to Chapter~\ref{ch.pbilby}. 
 
 
 \subsection{Interpretting GW signals}
 
-After GW searches and parameter estimation pipelines identify and characterize signals, astronomers can begin interpreting the inferred parameters.
-Mass and spin inferences help determine where (eg, isolated-space, globular clusters, or active galaxies) these binaries form and merge.
+After GW searches and parameter estimation pipelines identify and characterise signals, astronomers can begin interpreting the inferred parameters.
+Mass and spin inferences help determine where (e.g., isolated space, globular clusters, or active galaxies) these binaries form and merge.
 Each observation's inferred parameter can reveal the binary's formation pathway.
+
 
 For example, consider the inferred parameters for GW150914, GW190521 and GW190425~\cite{abbott2016observation, gw190521,gw190425}. 
 The observation of GW150914 robustly demonstrates that relatively ``heavy'' black holes ($\geq25\ M_{\odot}$) can form and eventually even merge~\cite{gw150914_asto_implications}.
@@ -236,7 +238,7 @@ AGNs are promising environments for the assembly of merging binary black hole sy
 \begin{figure}
 \begin{center}
   \centerline{\includegraphics[width=1.\linewidth]{src/figures/agn_spins.png}}
-  \caption{\textbf{AGN BBH-spins:} Different AGN age $\tau_{\rm AGN}$ and density $\rho_{\rm AGN}$ values can lead to different binary black hole spins. The different scenarios are described in text.}
+  \caption{\textbf{AGN BBH-spins:} Different AGN age $\tau_{\rm AGN}$ and density $\rho_{\rm AGN}$ values can lead to different binary black hole spins. The different scenarios are described in the text.}
   \label{fig:agn_spins}
 \end{center}
 \end{figure}
@@ -248,12 +250,12 @@ The model parameters can be mapped to the age $\tau_{\rm AGN}$ and density $\rho
 A schematic illustration of the model is presented in Figure~\ref{fig:agn_spins}. 
 In the Figure's top right corner, where the AGN is old and dense, the BBH orbital angular momentum and component BH spins align with the central SMBH spin. 
 Conversely, all spins are misaligned in the lower left, where the AGN is young and dilute. The other two corners represent unique spin orientations described in further detail in Chapter~\ref{ch.agn}.
-We estimate how these different populations of binaries in AGNs can be distinguished.
+In Chapter~\ref{ch.agn} we demonstrate how these different populations of binaries in AGNs can be distinguished.
 If most merging black holes are assembled in AGNs, future gravitational-wave observations may provide insights into the dynamics of AGN disks.
 
 \section{The hunt for exoplanets}
 
-Humans have long sought worlds beyond our own, to answer questions like: how did the planets in our solar system form? Are Earth-like planets common? And, the biggest question of all -- is there life beyond Earth? 
+Humans have long sought worlds beyond our own to answer questions like: how did the planets in our solar system form? Are Earth-like planets common? And, the biggest question of all -- is there life beyond Earth? 
 The answer to the last question will change humankind forever, whether it reveals a universe replete with rare and fragile life, or no life. 
 Nevertheless, just as our ability to locate faraway stars or detect gravitational waves was constrained by technology until relatively recently, so was our ability to investigate planets beyond our solar system, exoplanets.
 Now, thanks to the Kepler and TESS satellites, astronomers have found thousands of exoplanets.
@@ -270,20 +272,20 @@ Thus they must have originated from the shattered remains of an exoplanet.
 Unfortunately, Adams was unaware of this, and his finding stayed in the archives until 2016 when Jay Farihi discovered and correctly interpreted Adam's work~\cite{Farihi:2016:NewAR}.
 
 Since Adams' observations, many scientists have reported discoveries of exoplanet candidates.
-Unfortunately, all candidates were disproven, until 1992 when Aleksander Wolszczan and Dale Frail published their work on a bizarre system~\cite{wolszczan1992planetary}. 
+Unfortunately, all candidates were disproven until 1992 when Aleksander Wolszczan and Dale Frail published their work on a bizarre system~\cite{wolszczan1992planetary}. 
 Wolszczan and Frail were investigating  pulsar PSR B1257+12's periodic timing variations.
 After extensive investigation, they concluded the periodicity was due to two planets orbiting the pulsar. 
 Astronomers were initially surprised by this planetary system because they anticipated that supernovae that generated pulsars would kill or eject any planets in orbit via a shockwave. 
-Therefore, the scientists hypothesized that these two planets may have formed when the destroyed planets' gas and dust accumulated around the pulsar after the supernova~\cite{wolszczan1992planetary}.
+Therefore, the scientists hypothesised that these two planets may have formed when the destroyed planets' gas and dust accumulated around the pulsar after the supernova~\cite{wolszczan1992planetary}.
 Exciting as it was, Wolszczan and Frail's exoplanet was not what scientists were seeking; the hunt for the first exoplanet orbiting a sun-like star continued.
 Only three years later, the hunt resulted in the discovery of exoplanet ``51Pegasi b'' by Didier Queloz, a doctoral student, in 1995~\cite{mayor1995jupiter}.
-Queloz discovered this massive exoplanet with an orbit of 4 days using the ``radial-velocity'' method, in which the small wobble of a star is measured due to the gravitational pull of an orbiting planet. 
+Queloz discovered this massive exoplanet with an orbit of 4 days using the ``radial-velocity'' method, in which the slight wobble of a star is measured due to the gravitational pull of an orbiting planet. 
 
 
 \begin{figure}
 \begin{center}
   \centerline{\includegraphics[width=1.\linewidth]{src/figures/confirmed_planets_vs_time.png}}
-  \caption{\textbf{Exoplanet detections over time:} Number of exoplanets discovered per year. The top panel is colored by the telescope used for detections. The bottom panel is colored by the method used to identify the exoplanet. Data has been obtained from \href{https://exoplanetarchive.ipac.caltech.edu/}{\textsc{ExoFop}}. \github{https://github.com/avivajpeyi/exoplanet_catalog_plotter}}
+  \caption{\textbf{Exoplanet detections over time:} A cumulative bar plot showing the number of exoplanets discovered per year. The top panel is colored by the telescope used for detections. The bottom panel is colored by the method used to identify the exoplanet. Data has been obtained from \href{https://exoplanetarchive.ipac.caltech.edu/}{\textsc{ExoFop}}. \github{https://github.com/avivajpeyi/exoplanet_catalog_plotter}}
   \label{fig:exo_detections_over_time}
 \end{center}
 \end{figure}
@@ -316,7 +318,7 @@ The following sections delve into some of these discoveries.
 \end{center}
 \end{figure}
 
-% 
+
 
 \paragraph{Big to small:}
 Before Kepler's launch, most exoplanets identified (using radial velocity) were hot, massive gas giants, top region of Figure~\ref{fig:exo_categories}a~\cite{kepler_mission}.
@@ -363,7 +365,7 @@ Next are the \textit{Neptunian worlds}, which have a gaseous ``volatile envelope
 The final group consists of gas giants, or \textit{Jovian worlds} (e.g. Jupiter).
 Figure~\ref{fig:exo_mass_radius_relations}a shows that additional mass increases the radii of terrestrial and Neptunian planets, but decreases the size of gas giants due to ``self-compression" by gravity.
 Using planets with mass and radius measurements, scientists constructed a mass-radius power-law relation, represented in Figure~\ref{fig:exo_mass_radius_relations}a by the broken purple power-law~\cite{Chen:2017:ApJ}.
-This power-law was utilized to deduce mass/radius predictions for planets with a radius/mass measurement — the dense cluster of planets in the center of the purple power-law~\cite{Chen:2017:ApJ}.
+This power-law was utilized to deduce mass/radius predictions for planets with a radius/mass measurement — the dense cluster of planets in the centre of the purple power-law~\cite{Chen:2017:ApJ}.
 In turn, the mass and radii of numerous exoplanets have suggested a population of rocky planets~\cite{kepler_mission}.
 However, the question of if the planets are within the habitable zone is more complex.
 
@@ -387,18 +389,19 @@ Kepler continued to operate until its fuel ran out in 2018~\cite{KeplerShutdown}
 A few months after, TESS, the Transiting Exoplanet Survey Satellite, replaced Kepler as the primary spacecraft to discover new exoplanets.
 While Kepler surveyed less than 1\% of the sky, TESS has surveyed over 75\% of the sky and will get full coverage over the next few years~\cite{tess}. 
 Additionally, TESS observes brighter stars than Kepler to enable follow-up on some exoplanets via ground-based telescopes.  
-So far, TESS has found over 250 confirmed planets and has over 5,887 candidate exoplanets~\cite{Akeson:2019:AAS,  Stassun:2019:AJ}. 
+So far, TESS has found over $\sim250$ confirmed planets and has over $\sim6,000$ candidate exoplanets~\cite{Akeson:2019:AAS,  Stassun:2019:AJ}. 
 To aid in promoting some of these candidates to confirmed planets, we analyze all the candidates with a Bayesian inference framework. 
 This work is presented in Chapter~\ref{ch.tess}.
 
 
 \section{Thesis Overview}
 The remaining sections of the dissertation are organised as follows. 
-\cref{ch.bcr} presents a Bayesian-inspired ranking statistic to aid in the search for gravitational waves from intermediate- mass black holes. 
+\cref{ch.bcr} presents a Bayesian-inspired ranking statistic to aid in the search for gravitational waves from intermediate-mass black holes. 
 A review of alternative methods for detecting IMBHs is presented in \aref{apdx.imbh}. 
 \cref{ch.pbilby} introduces a parallelized nested sampling library for gravitational wave parameter estimation. 
 This covers the parameter estimation method and software utilised in subsequent gravitational wave chapters. 
-\cref{ch.deep} documents a new method for resolving inconsistencies between two sets of opposing posteriors. The method is demonstrated with an analysis on GW151226. 
-\cref{ch.agn} introduces a phenomenological model for ensemble spin properties of black hole in AGNs. It estimates the number of observations required for the model to constrain AGN parameters. 
+\cref{ch.deep} documents a new method for resolving inconsistencies between two sets of opposing posteriors. 
+The method is demonstrated with an analysis of GW151226. 
+\cref{ch.agn} introduces a phenomenological model for ensemble spin properties of black holes in AGNs. It estimates the number of observations required for the model to constrain AGN parameters. 
 \cref{ch.tess} presents an updated catalogue of candidate exoplanet parameters estimated from Bayesian inference, demonstrating the versatility of Bayesian methods outside of gravitational waves.
 \cref{cp.conc} concludes with remarks on the future of gravitational waves and exoplanet research.
