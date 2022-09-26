@@ -149,17 +149,24 @@
 % %%%%% Github 
 \usepackage{fontawesome5}
 
+\newcommand{\GhIcon}{\textcolor{gray}{\faGithubSquare}}
 % \makeatletter
 \newcommand{\github}[1]{%
-  Source code on Github~\href{#1}{\textcolor{gray}{\faGithubSquare}}.%
+  Source code on Github~\href{#1}{\GhIcon}.%
 }
 % \makeatother
 
 
 %%% CUSTOM COMMANDS
-\newcommand{\commentcmd}[3]{{\color{#2}\emph{#1}: #3}}
+\newif\ifdraft
+\drafttrue % switch to false in non-draft version (thereby hiding the todos)
+\newcommand{\inDraftVersion}[1]{\ifdraft #1\fi} 
+
+\newcommand{\commentcmd}[3]{\inDraftVersion{\color{#2}\emph{#1}: #3}}
 \newcommand{\todo}[1]{\commentcmd{TODO}{orange}{#1}}
 \newcommand{\citeme}{{\color{red}(citation needed)}}
+
+
 
 %%% QUOTE
 
@@ -213,7 +220,8 @@
 \usepackage{pdfpages}
 \usepackage{setspace}
 \onehalfspacing
-\setlength{\parindent}{0pt}
+% \setlength{\parindent}{0pt}
+\setlength{\parindent}{3.0ex}
 \setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
 \usepackage{vmargin}
 \setmarginsrb           { 1.5in}  % left margin
@@ -294,7 +302,7 @@
         stringstyle=\color[rgb]{0.7,0,0} }
 \usepackage[pdfpagemode={UseOutlines},bookmarks=true,bookmarksopen=true,
    bookmarksopenlevel=0,bookmarksnumbered=true,hypertexnames=false,
-   colorlinks,linkcolor={blue},citecolor={blue},urlcolor={red},
+   colorlinks,linkcolor={NavyBlue},citecolor={NavyBlue},urlcolor={NavyBlue},
    pdfstartview={FitV},unicode,breaklinks=true]{hyperref}
 \pdfstringdefDisableCommands{
    \let\\\space
@@ -319,16 +327,16 @@
 \examiner    {}
 \degree      {Doctor of Philosophy}
 \authors     {Avi Vajpeyi}
-\university  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
+\university  {\texorpdfstring{\href{https://www.monash.edu/}
                 {Monash University}}
                 {Monash University}}
-\UNIVERSITY  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
+\UNIVERSITY  {\texorpdfstring{\href{https://www.monash.edu/}
                 {Monash University}}
                 {Monash University}}
-\school  {\texorpdfstring{\href{School Web Site URL Here (include http://)}
+\school  {\texorpdfstring{\href{https://research.monash.edu/en/organisations/school-of-physics-and-astronomy}
                 {School of Physics and Astronomy}}
                 {School of Physics and Astronomy}}
-\SCHOOL  {\texorpdfstring{\href{School Web Site URL Here (include http://)}
+\SCHOOL  {\texorpdfstring{\href{https://research.monash.edu/en/organisations/school-of-physics-and-astronomy}
                 {School of Physics and Astronomy}}
                 {School of Physics and Astronomy}}
 \group       {\texorpdfstring{\href{Research Group Web Site URL Here (include http://)}
