@@ -160,6 +160,7 @@
 %%% CUSTOM COMMANDS
 \newif\ifdraft
 \drafttrue % switch to false in non-draft version (thereby hiding the todos)
+\draftfalse
 \newcommand{\inDraftVersion}[1]{\ifdraft #1\fi} 
 
 \newcommand{\commentcmd}[3]{\inDraftVersion{\color{#2}\emph{#1}: #3}}
@@ -450,7 +451,7 @@
 \addcontentsline{toc}{chapter}{#1}}
 \renewcommand\tableofcontents{
 \btypeout{Table of Contents}
-\begin{spacing}{1}{
+\begin{spacing}{0.9}{
     \setlength{\parskip}{1pt}
     \if@twocolumn
       \@restonecoltrue\onecolumn
