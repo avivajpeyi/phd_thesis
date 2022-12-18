@@ -150,6 +150,7 @@
 \newcommand{\commentcmd}[3]{\inDraftVersion{\color{#2}\emph{#1}: #3}}
 \newcommand{\todo}[1]{\commentcmd{TODO}{orange}{#1}}
 \newcommand{\citeme}{{\color{red}(citation needed)}}
+\newcommand{\newtxt}[1]{\commentcmd{}{green}{#1}}
 
 
 
@@ -554,6 +555,7 @@
   \@mainmatterfalse}
 \endinput
 %%
+
 
 
 %% End of file `Thesis.cls'.

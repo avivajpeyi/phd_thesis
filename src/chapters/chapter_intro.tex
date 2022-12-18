@@ -89,7 +89,7 @@ The following two sections of this chapter focus on two other areas where new as
 
 %% What is a GW 
 When some stars reach the end of their lives, they can turn into compact objects such as neutron stars and black holes. 
-Some compact objects give away their positions via electromagnetic (EM) radiation due to accretion. 
+Some compact objects give away their positions via electromagnetic (EM) radiation due to a variety of phenomena such as accretion, jets and gamma-ray bursts. 
 Others reveal themselves via gravitational wave (GW) radiation emitted due to an oscillating mass quadrupole moment.
 Any system with a gravitational quadrupole changing with time produces changes in its gravitational field, resulting in energy emission as gravitational waves.
 Gravitational-wave astronomy gives us a new tool to examine the cosmos that complements classic electromagnetic astronomy.
@@ -97,14 +97,14 @@ Using gravitational waves, astronomers can research binary black holes and neutr
 However, it was only recently that astronomers were able to detect GWs. 
 
 %% History of GW
-In 1974, Russell Hulse and Joseph Taylor discovered a pulsar signal using the Arecibo radio telescope~\cite{Hulse:1975:ApJL}.
-Measurements revealed that the pulsars' orbital period repeatedly fluctuates every few hours, indicating it is in orbit with a hidden companion.
+In 1974, Russell Hulse and Joseph Taylor discovered a pulsar signal using the Arecibo radio telescope~\cite{Hulse:1975:ApJL}. %new txt
+Measurements revealed that the intervals between pulses repeatedly fluctuate every few hours, indicating the pulsar is in orbit with a hidden companion.
 Hulse and Taylor noted that the orbital period was decaying -- the pulsar and its companion were inspiralling~\cite{Hulse:1975:ApJL}.
 After observing the system for another 30 years, they determined that the decrease of the orbital period resulted from the binary releasing gravitational waves, the first indirect observation of gravitational waves.
 
 This indirect detection of gravitational waves paved the groundwork for the Laser Interferometer Gravitational-Wave Observatory, LIGO~\cite{Barish:1999:PhT}. 
 LIGO was constructed in 1999, but it was not until 2015 that the first gravitational wave from a binary black hole merger, GW150914, was identified~\cite{abbott2016observation}.
-Since then, the LIGO-VIRGO-KAGRA (LVK) collaboration has recorded several petabytes of data, and astronomers have discovered more than ninety gravitational wave signals from compact binary mergers~\cite{abbott2019gwtc, gwtc2, gwtc3}.
+Since then, the LIGO-VIRGO-KAGRA (LVK) collaboration has recorded several petabytes of data~\cite{ligoData}, and astronomers have discovered more than ninety gravitational wave signals from compact binary mergers~\cite{abbott2019gwtc, gwtc2, gwtc3}.
 Individually, these events have provided astronomers with interesting information about various astrophysical objects. 
 Taken together, the events form a population that can be studied as a whole. 
 
@@ -136,8 +136,8 @@ $10^{-3}-10^{1}$s~\cite{abbott2016observing}.
 Unmodeled gravitational-wave searches are powerful tools as they may help detect short-duration signals produced by unknown and known phenomena for which we have not yet developed good theoretical models~\cite{gw_search_review}. 
 For example, short-duration signals from high mass binary black hole mergers, supernovae, cosmic strings, and unknown astrophysical phenomena as described in~\citep{abbott2018prospects}.
 
-While unmodeled searches look for the unknown,  modelled or targeted gravitational-wave searches look for signals from known sources~\cite{abbott2016ligo}. 
-Modeled searches for GW signals from the coalescence of compact binary coalescence (CBCs), such as \textsc{PyCBC}~\cite{biwer2019pycbc},
+While unmodeled searches look for the unknown,  modelled or targeted gravitational-wave searches look for signals from known sources~\cite{abbott2016ligo}. %new text
+Modelled searches for GW signals from compact binary coalescences (CBCs), such as \textsc{PyCBC}~\cite{biwer2019pycbc},
 \textsc{GstLAL}~\cite{sachdev2019gstlal}, \textsc{MBTA}~\cite{MBTA} and \textsc{SPIIR} pipelines~\cite{SPIIR} use prior information about our expectations of GWs in searches~\cite{gw_search_review}. 
 These searches compute the inner product between a gravitational waveform and the data stream and attempt to optimise the inner product by testing different waveforms. 
 The different waveforms are chosen from a template bank of potential waveforms, where each waveform corresponds to different signal parameters. 
@@ -198,10 +198,10 @@ For a detailed discussion on the parallelisation of nested sampling and how it c
 
 After GW searches and parameter estimation pipelines identify and characterise signals, astronomers can begin interpreting the inferred parameters.
 Mass and spin inferences help determine where (e.g., isolated space, globular clusters, or active galaxies) these binaries form and merge.
-Each observation's inferred parameter can reveal the binary's formation pathway.
+Each observation's inferred parameters can reveal the binary's formation pathway.
 
-
-For example, consider the inferred parameters for GW150914, GW190521 and GW190425~\cite{abbott2016observation, gw190521,gw190425}. 
+%new text
+For example, consider the inferred parameters for GW150914~\cite{abbott2016observation}, GW190521~\cite{gw190521} and GW190425~\cite{gw190425}. 
 The observation of GW150914 robustly demonstrates that relatively ``heavy'' black holes ($\geq25\ M_{\odot}$) can form and eventually even merge~\cite{gw150914_asto_implications}.
 Based on GW150914's component black hole masses, astronomers inferred the stellar progenitors may have existed in a low-mass galaxy in the local Universe~\cite{gw150914_asto_implications}. 
 GW190521's parameters show that the signal originated from an asymmetric BBH merger with masses of $85^{+21}_{-14}M_{\odot}$ and $66^{+17}_{-18}M_{\odot}$~\cite{gw190521}.
